@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Road Safety: Human Behaviour First</title>
+   <!-- Load Tailwind CSS -->
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+       /* Custom font and scroll behavior */
+       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+       body {
+           font-family: 'Inter', sans-serif;
+           background-color: #f7f9fb;
+       }
+       .header-shadow {
+           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+       }
+   </style>
+   <script>
+       tailwind.config = {
+           theme: {
+               extend: {
+                   colors: {
+                       'safety-primary': '#1e40af', /* Dark Blue */
+                       'safety-secondary': '#3b82f6', /* Blue */
+                       'safety-accent': '#f59e0b', /* Amber/Orange */
+                   }
+               }
+           }
+       }
+      
+       // Global variable to track the current page
+       let currentPage = 'home';
+
+
+       /**
+        * Function to simulate page navigation in a single-page application (SPA) style.
+        * Hides all content sections and shows only the one corresponding to the targetPage.
+        */
+       function navigateTo(targetPage) {
+           // Hide all pages (sections marked with .app-page)
+           document.querySelectorAll('.app-page').forEach(page => {
+               page.classList.add('hidden');
+           });
+
+
+           // Show the target page
+           const targetElement = document.getElementById(`page-${targetPage}`);
+           if (targetElement) {
+               targetElement.classList.remove('hidden');
+               currentPage = targetPage;
+               window.scrollTo(0, 0); // Scroll to top on navigation
+           }
+          
+           // Close mobile menu if open
+           const mobileMenu = document.getElementById('mobile-menu');
+           const mobileMenuButton = document.getElementById('mobile-menu-button');
+           if (!mobileMenu.classList.contains('hidden')) {
+               mobileMenu.classList.add('hidden');
+               mobileMenuButton.setAttribute('aria-expanded', 'false');
+           }
+       }
+
+
+       // Initialize the first page view when the DOM is loaded
+       document.addEventListener('DOMContentLoaded', () => {
+           // Ensure all pages start hidden, then show the home page
+           document.querySelectorAll('.app-page').forEach(page => {
+               page.classList.add('hidden');
+           });
+           navigateTo('home');
+       });
+   </script>
+</head>
+<body class="text-gray-800">
+
+
+   <!-- Navigation Bar -->
+   <header class="sticky top-0 z-50 bg-white header-shadow">
+       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div class="flex items-center justify-between h-16">
+               <!-- Logo/Title -->
+               <div class="flex-shrink-0">
+                   <!-- Updated: Use JS navigation to 'home' page -->
+                   <a href="javascript:void(0)" onclick="navigateTo('home')" class="text-2xl font-extrabold text-safety-primary">
+                       Behaviour First
+                   </a>
+               </div>
+               <!-- Desktop Links -->
+               <div class="hidden md:block">
+                   <div class="ml-10 flex items-baseline space-x-4">
+                       <!-- Updated: Use JS navigation instead of anchors -->
+                       <a href="javascript:void(0)" onclick="navigateTo('home')" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-safety-secondary hover:text-white transition duration-150">Home</a>
+                       <a href="javascript:void(0)" onclick="navigateTo('about')" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-safety-secondary hover:text-white transition duration-150">About Us</a>
+                       <a href="javascript:void(0)" onclick="navigateTo('faqs')" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-safety-secondary hover:text-white transition duration-150">FAQs</a>
+                       <a href="javascript:void(0)" onclick="navigateTo('contact')" class="px-3 py-2 rounded-lg text-sm font-medium bg-safety-accent text-white hover:bg-yellow-600 transition duration-150">Contact Us</a>
+                   </div>
+               </div>
+               <!-- Mobile Menu Button -->
+               <div class="-mr-2 flex md:hidden">
+                   <button id="mobile-menu-button" type="button" class="bg-safety-primary inline-flex items-center justify-center p-2 rounded-lg text-white hover:text-white hover:bg-safety-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-safety-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                       <span class="sr-only">Open main menu</span>
+                       <!-- Icon when menu is closed -->
+                       <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                       </svg>
+                       <!-- Icon when menu is open -->
+                       <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                       </svg>
+                   </button>
+               </div>
+           </div>
+       </nav>
+       <!-- Mobile Menu -->
+       <div class="md:hidden hidden" id="mobile-menu">
+           <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+               <!-- Updated: Use JS navigation instead of anchors -->
+               <a href="javascript:void(0)" onclick="navigateTo('home')" class="text-gray-700 hover:bg-safety-secondary hover:text-white block px-3 py-2 rounded-lg text-base font-medium transition duration-150">Home</a>
+               <a href="javascript:void(0)" onclick="navigateTo('about')" class="text-gray-700 hover:bg-safety-secondary hover:text-white block px-3 py-2 rounded-lg text-base font-medium transition duration-150">About Us</a>
+               <a href="javascript:void(0)" onclick="navigateTo('faqs')" class="text-gray-700 hover:bg-safety-secondary hover:text-white block px-3 py-2 rounded-lg text-base font-medium transition duration-150">FAQs</a>
+               <a href="javascript:void(0)" onclick="navigateTo('contact')" class="text-white bg-safety-accent block px-3 py-2 rounded-lg text-base font-medium transition duration-150">Contact Us</a>
+           </div>
+       </div>
+   </header>
+
+
+   <main>
+      
+       <!-- Home Section (Now 'page-home') -->
+       <section id="page-home" class="app-page py-12 hidden">
+           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+               <h1 class="text-4xl sm:text-5xl font-extrabold text-safety-primary mb-6 leading-tight">
+                   Why Road Safety Is Really About Human Behaviour (Not Just Signs and Rules)
+               </h1>
+
+
+               <div class="space-y-8 text-lg text-gray-700">
+                   <!-- Introduction -->
+                   <p>
+                       If you’ve ever driven late at night when the roads are quiet and the lights are green for miles, you’ve probably felt that little nudge: “Well, I can speed a bit… who’s around?”
+                   </p>
+                   <p class="p-4 bg-safety-secondary/10 border-l-4 border-safety-secondary rounded-lg italic">
+                       That subtle shift—when rules feel optional—is where road safety becomes more about psychology than regulations.
+                   </p>
+
+
+                   <!-- We don’t drive with our brains alone -->
+                   <h2 class="text-3xl font-bold text-safety-primary pt-4">We don’t drive with our brains alone—we drive with our emotions</h2>
+                   <p>
+                       Most people think collisions happen due to bad driving ability. But more often, they happen because of human behaviour:
+                   </p>
+                   <ul class="list-disc ml-6 space-y-2">
+                       <li>We rush because we're late</li>
+                       <li>We glance at the phone because it buzzed</li>
+                       <li>We assume others will yield</li>
+                       <li>We think “it won’t happen to me”</li>
+                   </ul>
+                   <p>It’s rarely a technical error. It’s often a momentary human one.</p>
+
+
+                   <!-- A real-life scenario -->
+                   <h2 class="text-3xl font-bold text-safety-primary pt-4">A real-life scenario: The “just this once” spiral</h2>
+                   <p>
+                       A friend of mine, David, used to commute 30 minutes through a semi-rural area with long stretches of road. One morning he woke up late and pushed his speed just a little — then a little more. It was foggy, visibility was low, and as he came over a slight hill, a truck pulled out of a side road. There was no time to brake fully.
+                   </p>
+                   <p>
+                       Thankfully, no one was seriously hurt—but David said the scariest part was realizing that he didn’t crash because he was a bad driver — but because he’d ignored a small voice in his head telling him to slow down.
+                   </p>
+                   <blockquote class="p-4 bg-gray-100 border-l-4 border-safety-accent rounded-lg text-xl italic font-semibold">
+                       “I wasn’t unlucky. I was impatient.”
+                   </blockquote>
+
+
+                   <!-- Our brains are wired to underestimate risk -->
+                   <h2 class="text-3xl font-bold text-safety-primary pt-4">Our brains are wired to underestimate risk</h2>
+                   <p>
+                       Humans are built to normalize routine. When we’ve done something safely 500 times, we start believing we’re safe doing it the 501st time—even if conditions have changed. That’s why:
+                   </p>
+                   <ul class="list-disc ml-6 space-y-2">
+                       <li>People check texts at traffic lights</li>
+                       <li>Pedestrians cross on red if nothing’s coming</li>
+                       <li>Cyclists skip hand signals if the road looks empty</li>
+                   </ul>
+                   <p>It’s not outright recklessness—it’s habit plus optimism.</p>
+
+
+                   <!-- The social chain reaction -->
+                   <h2 class="text-3xl font-bold text-safety-primary pt-4">The social chain reaction</h2>
+                   <p>
+                       Behaviour is contagious on the road.
+                   </p>
+                   <ul class="list-disc ml-6 space-y-2">
+                       <li>If one driver speeds, others match them.</li>
+                       <li>If one pedestrian crosses early, others follow.</li>
+                       <li>If one cyclist ignores a stop sign, drivers become more irritated and less patient.</li>
+                   </ul>
+                   <p class="font-semibold text-safety-secondary">
+                       Road safety is like public health—everyone shares responsibility. We protect not just ourselves but others.
+                   </p>
+
+
+                   <!-- The small choices are the big ones -->
+                   <h2 class="text-3xl font-bold text-safety-primary pt-4">The small choices are the big ones</h2>
+                   <p>
+                       Road safety often comes down to tiny micro-decisions:
+                   </p>
+                   <ul class="list-disc ml-6 space-y-2">
+                       <li>Do I check my mirrors again?</li>
+                       <li>Do I wait that extra second before pulling out?</li>
+                       <li>Do I look left one more time at the crosswalk?</li>
+                       <li>Do I ignore the phone until I’m parked?</li>
+                   </ul>
+                   <p>These aren’t dramatic heroic acts. They’re ordinary ones that prevent extraordinary consequences.</p>
+
+
+                   <!-- A gentle, friendly takeaway -->
+                   <h2 class="text-3xl font-bold text-safety-primary pt-4">A gentle, friendly takeaway</h2>
+                   <p>
+                       Next time you’re out on the road—driving, cycling, or walking—think of it less like following rules and more like looking out for friends on the same shared path. A little extra patience, a little more attention, and a touch of empathy go a surprisingly long way.
+                   </p>
+                   <p class="p-4 bg-safety-accent/20 border-l-4 border-safety-accent rounded-lg font-bold text-lg">
+                       And hey—getting somewhere two minutes later is almost always better than not getting there at all.
+                   </p>
+               </div>
+           </div>
+       </section>
+
+
+       <!-- About Us Section (Now 'page-about') -->
+       <section id="page-about" class="app-page hidden">
+           <div class="bg-safety-primary py-16">
+               <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+                   <h2 class="text-4xl font-extrabold mb-6 border-b-2 border-safety-accent pb-2">About Us: The Mindset Shift</h2>
+                   <p class="text-xl mb-4">
+                       Our mission is simple: to shift the conversation around road safety from rigid enforcement and abstract rules to the core of the issue—human psychology and ethical responsibility.
+                   </p>
+                   <p class="mb-4">
+                       We believe that nearly all road incidents are preventable through better awareness of our cognitive biases, emotional states, and tendency to normalize risk. We provide resources, workshops (mock), and insights aimed at cultivating patience, empathy, and situational awareness in every road user—drivers, cyclists, and pedestrians alike.
+                   </p>
+                   <p class="italic">
+                       Safety is not a guarantee provided by a traffic light; it is a choice made in every single moment.
+                   </p>
+                   <div class="mt-8 flex flex-wrap gap-4">
+                       <span class="bg-white text-safety-primary px-3 py-1 rounded-full text-sm font-semibold">#BehaviourOverRules</span>
+                       <span class="bg-white text-safety-primary px-3 py-1 rounded-full text-sm font-semibold">#EmpathyOnTheRoad</span>
+                       <span class="bg-white text-safety-primary px-3 py-1 rounded-full text-sm font-semibold">#MindfulMobility</span>
+                   </div>
+               </div>
+           </div>
+       </section>
+
+
+       <!-- FAQs Section (Now 'page-faqs') -->
+       <section id="page-faqs" class="app-page py-12 hidden">
+           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+               <h2 class="text-4xl font-extrabold text-safety-primary mb-8 text-center">Frequently Asked Questions</h2>
+
+
+               <div class="space-y-6">
+                   <!-- FAQ Item 1 -->
+                   <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-lg">
+                       <h3 class="text-xl font-bold text-safety-secondary mb-2">Q: Doesn't aggressive driving come down to law enforcement?</h3>
+                       <p class="text-gray-700">
+                           A: Law enforcement is critical, but it addresses the symptom, not the cause. Our focus is on the proactive—understanding the psychological triggers (stress, impatience, distraction) that lead people to break rules in the first place. By addressing the 'why', we aim for sustainable behavioral change, not just compliance driven by fear of penalty.
+                       </p>
+                   </div>
+
+
+                   <!-- FAQ Item 2 -->
+                   <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-lg">
+                       <h3 class="text-xl font-bold text-safety-secondary mb-2">Q: How can I be more patient when I'm running late?</h3>
+                       <p class="text-gray-700">
+                           A: This is tough, but try the "2-Minute Rule." Tell yourself that the rush will, at best, save you two minutes, but dramatically increase your risk. Frame the decision as trading two minutes of potential gain for a lifetime of regret. Pre-planning your trip time is the best long-term strategy.
+                       </p>
+                   </div>
+
+
+                   <!-- FAQ Item 3 -->
+                   <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-lg">
+                       <h3 class="text-xl font-bold text-safety-secondary mb-2">Q: Is this philosophy only for drivers?</h3>
+                       <p class="text-gray-700">
+                           A: Absolutely not! Every road user—pedestrian, cyclist, or motorist—operates on the road with human biases and emotions. Road safety is a shared responsibility. A distracted pedestrian crossing against a light is a behavioral risk just as much as a speeding driver.
+                       </p>
+                   </div>
+               </div>
+           </div>
+       </section>
+
+
+       <!-- Contact Us Section (Now 'page-contact') -->
+       <section id="page-contact" class="app-page hidden">
+           <div class="bg-gray-100 py-16">
+               <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                   <h2 class="text-4xl font-extrabold text-safety-primary mb-8 text-center">Get in Touch</h2>
+
+
+                   <div class="bg-white p-8 md:p-10 rounded-2xl shadow-xl">
+                       <p class="mb-6 text-lg text-gray-600">
+                           We'd love to hear your road safety stories, partnership ideas, or any questions you have about our behavioral approach.
+                       </p>
+                       <form onsubmit="event.preventDefault(); showThankYou();" class="space-y-4">
+                           <div>
+                               <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                               <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-safety-accent focus:border-safety-accent">
+                           </div>
+                           <div>
+                               <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                               <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-safety-accent focus:border-safety-accent">
+                           </div>
+                           <div>
+                               <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                               <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-safety-accent focus:border-safety-accent"></textarea>
+                           </div>
+                           <div class="pt-2">
+                               <button type="submit" class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-lg text-white bg-safety-accent hover:bg-yellow-600 transition duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-safety-accent">
+                                   Send Message
+                               </button>
+                           </div>
+                           <!-- Thank You Message Box (Hidden by default) -->
+                           <div id="thankYouMessage" class="hidden p-4 mt-4 text-center text-sm font-medium text-green-800 bg-green-100 border border-green-300 rounded-lg" role="alert">
+                               Thank you for reaching out! We will be in touch shortly.
+                           </div>
+                       </form>
+                       <!-- Simple Contact Info -->
+                       <div class="mt-8 pt-6 border-t border-gray-200 text-center">
+                           <p class="font-semibold text-safety-primary">Quick Contact:</p>
+                           <p>Email: <a href="mailto:info@behaviourfirst.org" class="text-safety-secondary hover:underline">info@behaviourfirst.org</a></p>
+                           <p>Social: @BehaviorFirst</p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+   </main>
+
+
+   <!-- Footer -->
+   <footer class="bg-gray-800 text-white py-8">
+       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+           <p>&copy; 2025 Road Safety: Behaviour First. All rights reserved.</p>
+           <p class="mt-2">Promoting awareness of human behaviour in public mobility.</p>
+       </div>
+   </footer>
+
+
+   <script>
+       // JavaScript for Mobile Menu Toggle
+       const mobileMenuButton = document.getElementById('mobile-menu-button');
+       const mobileMenu = document.getElementById('mobile-menu');
+
+
+       mobileMenuButton.addEventListener('click', () => {
+           const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+           mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+           mobileMenu.classList.toggle('hidden');
+       });
+
+
+       // Simple function for Contact Form 'Thank You' message
+       function showThankYou() {
+           const thankYou = document.getElementById('thankYouMessage');
+           thankYou.classList.remove('hidden');
+           setTimeout(() => {
+               thankYou.classList.add('hidden');
+               // Optionally clear the form
+               document.getElementById('name').value = '';
+               document.getElementById('email').value = '';
+               document.getElementById('message').value = '';
+           }, 3000);
+       }
+   </script>
+</body>
+</html>
