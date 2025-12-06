@@ -86,8 +86,8 @@
 
             <!-- Navigation Links -->
             <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-                <!-- LINK UPDATED: External link for Home -->
-                <a href="https://bookmyhsrp.com/" target="_blank" class="text-primary-blue hover:text-dark-blue transition duration-150">Home</a>
+                <!-- LINK UPDATED: Changed from external link to placeholder as requested -->
+                <a href="#" class="text-primary-blue hover:text-dark-blue transition duration-150">Home</a>
                 <a href="#report" class="text-gray-600 hover:text-dark-blue transition duration-150">About HSRP</a>
                 <a href="#faqs" class="text-gray-600 hover:text-dark-blue transition duration-150">FAQs</a>
                 <a href="#contact" class="text-gray-600 hover:text-dark-blue transition duration-150">Contact</a>
@@ -101,15 +101,15 @@
         <!-- === 1. Selection Screen (Visible by default) === -->
         <div id="selection-screen">
             <h2 class="text-center text-2xl md:text-3xl font-bold text-dark-gray mb-12">
-                Select the type of HSRP you need help with (HSRP प्रकार चुनें)
+                Select the type of Plate you need help with (HSRP प्रकार चुनें)
             </h2>
 
             <!-- Booking Options Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
 
-                <!-- Card 1: Old Vehicle HSRP -->
+                <!-- Card 1: Old Vehicle Plate (Changed from HSRP) -->
                 <div class="bg-card-old-bg p-6 rounded-xl shadow-lg border-2 border-yellow-700/50 flex flex-col justify-between transform hover:shadow-xl hover:scale-[1.01] transition duration-300">
-                    <h3 class="text-xl font-extrabold text-dark-gray">Old Vehicle HSRP</h3>
+                    <h3 class="text-xl font-extrabold text-dark-gray">Old Vehicle Plate</h3>
                     <p class="text-gray-700 mt-2 flex-grow">
                         Get plate for old/existing vehicles (पुराने/मौजूदा वाहनों के लिए प्लेट प्राप्त करें)
                     </p>
@@ -118,9 +118,9 @@
                     </button>
                 </div>
 
-                <!-- Card 2: New Vehicle HSRP -->
+                <!-- Card 2: New Vehicle Plate (Changed from HSRP) -->
                 <div class="bg-card-new-bg p-6 rounded-xl shadow-lg border-2 border-blue-700/50 flex flex-col justify-between transform hover:shadow-xl hover:scale-[1.01] transition duration-300 text-white">
-                    <h3 class="text-xl font-extrabold">New Vehicle HSRP</h3>
+                    <h3 class="text-xl font-extrabold">New Vehicle Plate</h3>
                     <p class="text-white/90 mt-2 flex-grow">
                         Get plate for newly registered vehicles (नए पंजीकृत वाहनों के लिए प्लेट प्राप्त करें)
                     </p>
@@ -129,9 +129,9 @@
                     </button>
                 </div>
 
-                <!-- Card 3: HSRP for Electric Vehicles -->
+                <!-- Card 3: Plate for Electric Vehicles (Changed from HSRP) -->
                 <div class="bg-card-ev-bg p-6 rounded-xl shadow-lg border-2 border-green-700/50 flex flex-col justify-between transform hover:shadow-xl hover:scale-[1.01] transition duration-300 text-white">
-                    <h3 class="text-xl font-extrabold">HSRP for Electric Vehicles</h3>
+                    <h3 class="text-xl font-extrabold">Plate for Electric Vehicles</h3>
                     <p class="text-white/90 mt-2 flex-grow">
                         Get plate for electric vehicles (इलेक्ट्रिक वाहनों के लिए प्लेट प्राप्त करें)
                     </p>
@@ -256,10 +256,10 @@
                 <h2 class="text-3xl font-extrabold text-dark-gray mb-2">HSRP PAYMENT (भुगतान)</h2>
                 <p class="text-gray-500 mb-6 font-semibold">Complete your booking by making the payment.</p>
 
-                <!-- Order Details -->
+                <!-- Order Details (Only Order ID remains) -->
                 <div class="text-lg font-medium text-gray-700 space-y-2 mb-8">
                     <p>Order ID: <span id="payment-order-id" class="font-bold text-primary-blue">ORDXXXXX</span></p>
-                    <p>Amount: <span id="payment-amount" class="font-bold text-accent-green">₹1198</span></p>
+                    <!-- Amount line has been permanently removed as per user request -->
                 </div>
 
                 <!-- QR Code Placeholder -->
@@ -271,15 +271,25 @@
                     <p class="text-sm text-gray-500 mt-2">Scan QR to Pay</p>
                 </div>
                 
-                <!-- Transaction Verification Section (NEW - Replaces Download QR) -->
+                <!-- Transaction Verification Section (UPDATED FOR ONLY SCREENSHOT UPLOAD) -->
                 <div id="transaction-upload-section" class="mt-6 p-4 bg-gray-100 rounded-lg border border-gray-200">
-                    <label for="transaction-number" class="block text-sm font-medium text-gray-700 text-left mb-2">
-                        Enter Demo Transaction ID (UPI/Bank Ref.)
-                    </label>
-                    <input type="text" id="transaction-number" placeholder="Enter 12-digit Ref. Number (e.g., UPL123456789)" 
-                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue uppercase text-sm">
+                    
+                    <!-- File Drop/Click Area -->
+                    <div id="file-drop-area" class="border-2 border-dashed border-primary-blue/50 bg-white p-4 rounded-lg text-center cursor-pointer hover:bg-blue-50 transition duration-150" onclick="document.getElementById('screenshot-input').click()">
+                        <!-- Hidden file input -->
+                        <input type="file" id="screenshot-input" accept="image/*" class="hidden" onchange="document.getElementById('file-name-display').textContent = this.files.length > 0 ? this.files[0].name : 'No file selected.'">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto text-primary-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        <p class="text-sm font-medium text-gray-700 mt-2">Click to Upload Screenshot</p>
+                        <p id="file-name-display" class="text-xs text-gray-500 mt-1">Max 5MB, JPG, PNG. No file selected.</p>
+                    </div>
+
+
+                    <!-- The verification button now handles the booking confirmation -->
                     <button onclick="verifyTransaction()" class="w-full mt-4 px-6 py-2 text-md font-bold text-white bg-accent-green rounded-lg hover:bg-green-700 transition duration-150 shadow-md">
-                        Verify Transaction and Confirm Booking
+                        Upload Screenshot and Confirm Booking
                     </button>
                 </div>
 
@@ -288,8 +298,6 @@
                     <p>Payment must be completed within <span id="payment-timer">05:00</span></p>
                 </div>
                 
-                <p class="text-sm text-gray-500 mt-4">Your payment will be auto captured after confirmation.</p>
-
                 <!-- Payment Methods Placeholder (जैसा आपने इमेज में दिखाया था) -->
                 <div class="mt-6">
                     <img src="https://placehold.co/400x50/F0F0F0/000?text=BHIM+%C2%B7+UPI+%C2%B7+G+Pay+%C2%B7+PhonePe+%C2%B7+Paytm+%C2%B7+Amazon+Pay" 
@@ -297,10 +305,7 @@
                          class="mx-auto rounded-md">
                 </div>
                 
-                <!-- Back to Home Button UPDATED TO EXTERNAL LINK -->
-                <a href="https://bookmyhsrp.com/" target="_blank" class="mt-8 px-6 py-2 text-md font-semibold text-white bg-gray-600 rounded-lg hover:bg-gray-700 transition duration-150 shadow-md inline-block">
-                    ← Back to Home
-                </a>
+                <!-- REMOVED: Back to Home Button was here -->
 
             </div>
         </div>
@@ -324,10 +329,8 @@
                     <p class="text-gray-700 text-sm">Your booking is secure! Your HSR Plate number plate will be delivered within 14–21 days.</p>
                 </div>
 
-                <!-- Back to Home Button UPDATED TO EXTERNAL LINK -->
-                <a href="https://bookmyhsrp.com/" target="_blank" class="mt-8 px-6 py-3 text-md font-bold text-white rounded-lg shadow-xl text-center cta-button inline-block">
-                    ← Back to Home
-                </a>
+                <!-- REMOVED: Back to Home Button was here -->
+                
             </div>
         </div>
     </main>
@@ -337,12 +340,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-wrap justify-center text-sm font-semibold space-x-4 md:space-x-8">
                 <a href="#report" class="text-gray-600 hover:text-dark-blue">About HSRP</a>
-                <a href="#" class="text-gray-600 hover:text-dark-blue">Safe & Secure Transaction (Demo)</a>
-                <a href="#" class="text-gray-600 hover:text-dark-blue">Privacy Policy (Demo)</a>
+                <!-- REMOVED (Demo) -->
+                <a href="#" class="text-gray-600 hover:text-dark-blue">Safe & Secure Transaction</a>
+                <!-- REMOVED (Demo) -->
+                <a href="#" class="text-gray-600 hover:text-dark-blue">Privacy Policy</a>
                 <a href="#" class="text-gray-600 hover:text-dark-blue">FAQ</a>
-                <a href="#" class="text-gray-600 hover:text-dark-blue">Terms & Conditions (Demo)</a>
-                <!-- Booking Available for (Placeholder as in the image) -->
-                <p class="text-gray-400 mt-2 w-full text-center">Booking Available for All States (Demo Process)</p>
+                <!-- REMOVED (Demo) -->
+                <a href="#" class="text-gray-600 hover:text-dark-blue">Terms & Conditions</a>
+                <!-- REMOVED (Demo Process) -->
+                <p class="text-gray-400 mt-2 w-full text-center">Booking Available for All States</p>
             </div>
         </div>
     </footer>
@@ -422,8 +428,8 @@
             document.getElementById('booking-form-screen').classList.remove('hidden');
             document.getElementById('payment-screen').classList.add('hidden'); // Ensure payment is hidden
             document.getElementById('thank-you-screen').classList.add('hidden'); // Ensure thank you is hidden
-            // Update title based on selection
-            document.getElementById('form-title').textContent = `${vehicleType} HSRP Booking`;
+            // Update title based on selection (HSRP changed to Plate)
+            document.getElementById('form-title').textContent = `${vehicleType} Plate Booking`;
             
             // Render Step 1
             renderStep(1);
@@ -507,8 +513,6 @@
             
             // Update Payment Details
             document.getElementById('payment-order-id').textContent = orderId;
-            // Amount is fixed as per request
-            document.getElementById('payment-amount').textContent = '₹1198'; 
 
             // Start the simulated 5-minute timer
             startPaymentTimer(300); // 300 seconds = 5 minutes
@@ -541,16 +545,20 @@
         
         // NEW FUNCTION: Handle transaction verification and show thank you screen
         function verifyTransaction() {
-            const transactionInput = document.getElementById('transaction-number');
-            const transactionId = transactionInput.value.trim();
+            const screenshotInput = document.getElementById('screenshot-input');
 
-            if (transactionId.length < 5) {
-                alert('Please enter a valid Demo Transaction ID (minimum 5 characters). (कृपया एक वैध डेमो ट्रांज़ैक्शन आईडी दर्ज करें।)');
+            if (screenshotInput.files.length === 0) {
+                alert('Please upload the payment screenshot to confirm booking. (बुकिंग की पुष्टि के लिए कृपया भुगतान का स्क्रीनशॉट अपलोड करें।)');
                 return;
             }
             
-            // Simulating successful verification
-            showThankYouScreen();
+            // Simulating successful verification and submission
+            alert('Screenshot uploaded successfully. Confirming booking...');
+            
+            // Simulating a short delay before showing the final screen
+            setTimeout(() => {
+                 showThankYouScreen();
+            }, 1000);
         }
         
         // NEW FUNCTION: Display the Thank You screen
