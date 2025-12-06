@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSRP Awareness and Document Guide</title>
+    <title>Vehicle Plate Guide</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom Configuration for Theme and Font -->
@@ -74,21 +74,20 @@
     <!-- Header / Navbar (Tricolor Branding) -->
     <header class="bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <!-- Logo Area (Tricolor HSRP Logo) -->
+            <!-- Logo Area (Tricolor Plate Guide Logo) -->
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 flex items-center justify-center font-extrabold text-lg tricolor-logo border border-gray-300">
-                    HSRP
+                    GUIDE
                 </div>
                 <h1 class="text-xl font-extrabold text-dark-gray">
-                    HSRP Book
+                    Plate Guide
                 </h1>
             </div>
 
             <!-- Navigation Links -->
             <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-                <!-- LINK UPDATED: Changed from external link to placeholder as requested -->
                 <a href="#" class="text-primary-blue hover:text-dark-blue transition duration-150">Home</a>
-                <a href="#report" class="text-gray-600 hover:text-dark-blue transition duration-150">About HSRP</a>
+                <a href="#report" class="text-gray-600 hover:text-dark-blue transition duration-150">About Plates</a>
                 <a href="#faqs" class="text-gray-600 hover:text-dark-blue transition duration-150">FAQs</a>
                 <a href="#contact" class="text-gray-600 hover:text-dark-blue transition duration-150">Contact</a>
             </nav>
@@ -101,42 +100,42 @@
         <!-- === 1. Selection Screen (Visible by default) === -->
         <div id="selection-screen">
             <h2 class="text-center text-2xl md:text-3xl font-bold text-dark-gray mb-12">
-                Select the type of Plate you need help with (HSRP प्रकार चुनें)
+                Select the type of Plate you are interested in (प्लेट प्रकार चुनें)
             </h2>
 
             <!-- Booking Options Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
 
-                <!-- Card 1: Old Vehicle Plate (Changed from HSRP) -->
+                <!-- Card 1: Old Vehicle Plate -->
                 <div class="bg-card-old-bg p-6 rounded-xl shadow-lg border-2 border-yellow-700/50 flex flex-col justify-between transform hover:shadow-xl hover:scale-[1.01] transition duration-300">
                     <h3 class="text-xl font-extrabold text-dark-gray">Old Vehicle Plate</h3>
                     <p class="text-gray-700 mt-2 flex-grow">
-                        Get plate for old/existing vehicles (पुराने/मौजूदा वाहनों के लिए प्लेट प्राप्त करें)
+                        See the guide for old/existing vehicles (पुराने/मौजूदा वाहनों के लिए गाइड देखें)
                     </p>
                     <button onclick="handleApplyNow('Old Vehicle')" class="inline-block mt-6 px-6 py-2 text-md font-black text-white rounded-lg shadow-xl text-center cta-button">
-                        Apply Now →
+                        Click Here →
                     </button>
                 </div>
 
-                <!-- Card 2: New Vehicle Plate (Changed from HSRP) -->
+                <!-- Card 2: New Vehicle Plate -->
                 <div class="bg-card-new-bg p-6 rounded-xl shadow-lg border-2 border-blue-700/50 flex flex-col justify-between transform hover:shadow-xl hover:scale-[1.01] transition duration-300 text-white">
                     <h3 class="text-xl font-extrabold">New Vehicle Plate</h3>
                     <p class="text-white/90 mt-2 flex-grow">
-                        Get plate for newly registered vehicles (नए पंजीकृत वाहनों के लिए प्लेट प्राप्त करें)
+                        See the guide for newly registered vehicles (नए पंजीकृत वाहनों के लिए गाइड देखें)
                     </p>
                     <button onclick="handleApplyNow('New Vehicle')" class="inline-block mt-6 px-6 py-2 text-md font-black text-white rounded-lg shadow-xl text-center cta-button">
-                        Apply Now →
+                        Click Here →
                     </button>
                 </div>
 
-                <!-- Card 3: Plate for Electric Vehicles (Changed from HSRP) -->
+                <!-- Card 3: Plate for Electric Vehicles -->
                 <div class="bg-card-ev-bg p-6 rounded-xl shadow-lg border-2 border-green-700/50 flex flex-col justify-between transform hover:shadow-xl hover:scale-[1.01] transition duration-300 text-white">
-                    <h3 class="text-xl font-extrabold">Plate for Electric Vehicles</h3>
+                    <h3 class="text-xl font-extrabold">Electric Vehicle Plate</h3>
                     <p class="text-white/90 mt-2 flex-grow">
-                        Get plate for electric vehicles (इलेक्ट्रिक वाहनों के लिए प्लेट प्राप्त करें)
+                        See the guide for electric vehicles (इलेक्ट्रिक वाहनों के लिए गाइड देखें)
                     </p>
                     <button onclick="handleApplyNow('Electric Vehicle')" class="inline-block mt-6 px-6 py-2 text-md font-black text-white rounded-lg shadow-xl text-center cta-button">
-                        Apply Now →
+                        Click Here →
                     </button>
                 </div>
             </div>
@@ -149,7 +148,7 @@
                         <p class="text-sm text-blue-200 mt-1">Please reach out to us for any issues related to awareness or process.</p>
                     </div>
                     <!-- This button is symbolic and uses bg-white -->
-                    <button onclick="alert('This is a simulated enquiry. For real issues, please contact the official helpline 1800-XXX-XXXX.')" 
+                    <button onclick="alert('This is a simulated enquiry. This platform is for awareness only.')" 
                             class="px-8 py-2 text-md font-bold bg-white text-primary-blue rounded-lg shadow-md hover:bg-gray-100 transition duration-150">
                         Enquiry
                     </button>
@@ -158,20 +157,19 @@
 
             <!-- Awareness Message -->
             <div class="mt-16 text-center text-gray-500 text-sm italic">
-                <p>We run this site purely for public awareness, ensuring citizens learn the correct HSRP booking process.</p>
-                <p>Road Safety is our core focus.</p>
+                <p>We run this site purely for public awareness, ensuring citizens learn the correct plate procedure. Road Safety is our core focus.</p>
             </div>
             
             <!-- Detailed Report Section (Kept for context/scrolling) -->
             <section id="report" class="max-w-7xl mx-auto py-10 md:py-16 bg-white shadow-xl rounded-xl my-10 px-6">
-                <h2 class="text-3xl font-extrabold text-dark-gray mb-6 border-b pb-2">HSRP and Road Safety in India: An Awareness Report</h2>
+                <h2 class="text-3xl font-extrabold text-dark-gray mb-6 border-b pb-2">Plate Standardisation and Road Safety in India: An Awareness Report</h2>
                 
                 <!-- Section 1: Important Disclaimer and Objective -->
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-primary-blue mb-4">Section 1: Important Disclaimer and Objective</h3>
                     <div class="bg-red-50 border-l-4 border-red-600 p-4 rounded-lg mt-4">
                         <p class="font-semibold text-red-700">Disclaimer:</p>
-                        <p class="text-red-600 mt-1">It is explicitly declared that this platform does not accept any payment or fees for booking HSRP. The goal is only to teach the correct procedure. All users are requested to make payments for HSRP only on the official portal.</p>
+                        <p class="text-red-600 mt-1">It is explicitly declared that this platform is a **SIMULATION** and does not accept any real payment or fees. The goal is only to teach the correct procedure. Users must make payments for plates only on official government portals.</p>
                     </div>
                 </div>
 
@@ -183,8 +181,8 @@
                 
                 <!-- Section 3: The Need for HSRP -->
                 <div class="mb-8">
-                    <h3 class="text-2xl font-bold text-dark-gray mb-4">Section 3: The Need for HSRP - Security and Standardization</h3>
-                    <p class="font-semibold mt-4">Key Security Features of HSRP:</p>
+                    <h3 class="text-2xl font-bold text-dark-gray mb-4">Section 3: The Need for Standardized Plates - Security and Standardization</h3>
+                    <p class="font-semibold mt-4">Key Security Features of Standardized Plates:</p>
                     <ul class="list-disc list-inside text-gray-700 ml-4 space-y-1 mt-2">
                         <li>**Chromium-Based Hologram:** Ensures plate authenticity.</li>
                         <li>**Laser Etched Unique PIN:** Permanent identification link to the chassis.</li>
@@ -204,7 +202,7 @@
                 
                 <div class="mt-8 pt-4 border-t">
                     <h3 class="text-xl font-bold text-primary-blue">Conclusion:</h3>
-                    <p class="text-gray-700 italic mt-2">HSRP is a far-sighted step towards bringing security, identity, and accountability to India's roads. Awareness platforms like this website play a vital role in making this change successful. Spread awareness, learn the correct procedure, and move towards a safer India.</p>
+                    <p class="text-gray-700 italic mt-2">Standardized Plate is a far-sighted step towards bringing security, identity, and accountability to India's roads. Awareness platforms like this website play a vital role in making this change successful. Spread awareness, learn the correct procedure, and move towards a safer India.</p>
                 </div>
 
             </section>
@@ -215,10 +213,10 @@
         <div id="booking-form-screen" class="hidden">
             <div id="form-container" class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border border-gray-200">
                 <h2 class="text-3xl font-extrabold text-primary-blue mb-2" id="form-title">
-                    HSRP Booking
+                    Plate Guide
                 </h2>
                 <p class="text-gray-500 mb-8 font-semibold" id="form-subtitle">
-                    Step 1 of 2: Vehicle Details (वाहन विवरण)
+                    Step 1 of 3: Vehicle Details (वाहन विवरण)
                 </p>
 
                 <!-- Step 1 Content -->
@@ -241,76 +239,53 @@
                     <button id="next-button" onclick="nextStep()" class="px-8 py-3 text-md font-bold text-white rounded-lg shadow-xl text-center cta-button">
                         Next: Personal Details →
                     </button>
-                    <!-- 'Submit' button now correctly shows Blue (cta-button) -->
-                    <button id="submit-button" onclick="submitBooking()" class="px-8 py-3 text-md font-bold text-white rounded-lg shadow-xl text-center cta-button hidden">
-                        Submit Booking
+                    <!-- 'Review' button before Final Step -->
+                    <button id="review-button" onclick="nextStep()" class="px-8 py-3 text-md font-bold text-white rounded-lg shadow-xl text-center cta-button hidden">
+                        Next: Final Confirmation →
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- === 3. Payment Screen (Initially hidden) === -->
+        <!-- === 3. Confirmation Step Screen (was Payment Screen) (Initially hidden) === -->
         <div id="payment-screen" class="hidden max-w-lg mx-auto">
             <div class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border border-gray-200 text-center">
                 
-                <h2 class="text-3xl font-extrabold text-dark-gray mb-2">HSRP PAYMENT (भुगतान)</h2>
-                <p class="text-gray-500 mb-6 font-semibold">Complete your booking by making the payment.</p>
+                <h2 class="text-3xl font-extrabold text-dark-gray mb-2">FINAL CONFIRMATION (अंतिम पुष्टि)</h2>
+                <p class="text-gray-500 mb-6 font-semibold">This completes the demonstration of the required steps.</p>
 
                 <!-- Order Details (Only Order ID remains) -->
                 <div class="text-lg font-medium text-gray-700 space-y-2 mb-8">
-                    <p>Order ID: <span id="payment-order-id" class="font-bold text-primary-blue">ORDXXXXX</span></p>
-                    <!-- Amount line has been permanently removed as per user request -->
+                    <p>Guide ID: <span id="payment-order-id" class="font-bold text-primary-blue">GUIDE-XXXXX</span></p>
                 </div>
 
-                <!-- QR Code Placeholder -->
+                <!-- Simulation Image Placeholder (Simulating payment/document verification) -->
                 <div class="border-2 border-gray-300 p-4 inline-block rounded-lg shadow-inner bg-gray-50">
                     <img src="https://i.postimg.cc/9f0D9czR/Whats-App-Image-2025-12-03-at-4-27-40-PM.jpg" 
-                         alt="QR Code Placeholder for Payment" 
+                         alt="Document Verification Placeholder" 
                          class="w-48 h-48 mx-auto" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/200x200/F8D7DA/721C24?text=Image+Error';">
-                    <p class="text-sm text-gray-500 mt-2">Scan QR to Pay</p>
+                         onerror="this.onerror=null; this.src='https://placehold.co/200x200/F8D7DA/721C24?text=Verification+Image+Error';">
+                    <p class="text-sm text-gray-500 mt-2">Simulated Document Verification</p>
                 </div>
                 
-                <!-- Transaction Verification Section (UPDATED FOR ONLY SCREENSHOT UPLOAD) -->
+                <!-- Final Confirmation Button -->
                 <div id="transaction-upload-section" class="mt-6 p-4 bg-gray-100 rounded-lg border border-gray-200">
-                    
-                    <!-- File Drop/Click Area -->
-                    <div id="file-drop-area" class="border-2 border-dashed border-primary-blue/50 bg-white p-4 rounded-lg text-center cursor-pointer hover:bg-blue-50 transition duration-150" onclick="document.getElementById('screenshot-input').click()">
-                        <!-- Hidden file input -->
-                        <input type="file" id="screenshot-input" accept="image/*" class="hidden" onchange="document.getElementById('file-name-display').textContent = this.files.length > 0 ? this.files[0].name : 'No file selected.'">
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto text-primary-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                        </svg>
-                        <p class="text-sm font-medium text-gray-700 mt-2">Click to Upload Screenshot</p>
-                        <p id="file-name-display" class="text-xs text-gray-500 mt-1">Max 5MB, JPG, PNG. No file selected.</p>
-                    </div>
-
+                    <p class="text-sm font-medium text-gray-700 mb-4">Click below to finalize the guide simulation.</p>
 
                     <!-- The verification button now handles the booking confirmation -->
-                    <button onclick="verifyTransaction()" class="w-full mt-4 px-6 py-2 text-md font-bold text-white bg-accent-green rounded-lg hover:bg-green-700 transition duration-150 shadow-md">
-                        Upload Screenshot and Confirm Booking
+                    <button onclick="verifyTransaction()" class="w-full mt-2 px-6 py-2 text-md font-bold text-white bg-accent-green rounded-lg hover:bg-green-700 transition duration-150 shadow-md">
+                        Finalize Guide and View Confirmation
                     </button>
                 </div>
 
-                <!-- Timer and Disclaimer -->
+                <!-- Timer and Disclaimer - CHANGED to "Confirmation Timeout" -->
                 <div class="bg-yellow-100 p-3 rounded-lg mt-8 text-yellow-800 font-medium">
-                    <p>Payment must be completed within <span id="payment-timer">05:00</span></p>
+                    <p>Confirmation window must be completed within <span id="payment-timer">05:00</span></p>
                 </div>
-                
-                <!-- Payment Methods Placeholder (जैसा आपने इमेज में दिखाया था) -->
-                <div class="mt-6">
-                    <img src="https://placehold.co/400x50/F0F0F0/000?text=BHIM+%C2%B7+UPI+%C2%B7+G+Pay+%C2%B7+PhonePe+%C2%B7+Paytm+%C2%B7+Amazon+Pay" 
-                         alt="Supported Payment Methods" 
-                         class="mx-auto rounded-md">
-                </div>
-                
-                <!-- REMOVED: Back to Home Button was here -->
-
             </div>
         </div>
 
-        <!-- === 4. Thank You Screen (NEW - Initially hidden) === -->
+        <!-- === 4. Thank You Screen (Initially hidden) === -->
         <div id="thank-you-screen" class="hidden max-w-lg mx-auto">
             <div class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border border-gray-200 text-center">
                 
@@ -319,17 +294,14 @@
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
 
-                <h2 class="text-3xl font-extrabold text-accent-green mb-1">धन्यवाद! आपकी HSR Plate बुकिंग सफल हो गई। 🎉</h2>
-                <h2 class="text-xl font-bold text-dark-gray mb-6">Thank You! Your HSR Plate Booking is Confirmed 🎉</h2>
+                <h2 class="text-3xl font-extrabold text-accent-green mb-1">धन्यवाद! आपकी गाइड प्रक्रिया पूरी हुई। 🎉</h2>
+                <h2 class="text-xl font-bold text-dark-gray mb-6">Thank You! Your Guide Process is Complete 🎉</h2>
 
-                <!-- Note Section -->
+                <!-- Note Section - UPDATED -->
                 <div class="bg-blue-50 border-l-4 border-primary-blue p-4 rounded-lg text-left mt-8">
-                    <p class="font-bold text-primary-blue mb-2">Note / नोट:</p>
-                    <p class="text-gray-700 text-sm mb-2">आपकी बुकिंग सुरक्षित हो गई है। आपका HSR Plate नंबर प्लेट 14–21 दिनों में डिलीवर किया जाएगा।</p>
-                    <p class="text-gray-700 text-sm">Your booking is secure! Your HSR Plate number plate will be delivered within 14–21 days.</p>
+                    <p class="font-bold text-primary-blue mb-2">Awareness Note / जागरूकता नोट:</p>
+                    <p class="text-gray-700 text-sm">This guide successfully demonstrated the necessary steps for your reference.</p>
                 </div>
-
-                <!-- REMOVED: Back to Home Button was here -->
                 
             </div>
         </div>
@@ -339,16 +311,10 @@
     <footer class="bg-white border-t border-gray-200 py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-wrap justify-center text-sm font-semibold space-x-4 md:space-x-8">
-                <a href="#report" class="text-gray-600 hover:text-dark-blue">About HSRP</a>
-                <!-- REMOVED (Demo) -->
-                <a href="#" class="text-gray-600 hover:text-dark-blue">Safe & Secure Transaction</a>
-                <!-- REMOVED (Demo) -->
+                <a href="#report" class="text-gray-600 hover:text-dark-blue">About Plates</a>
                 <a href="#" class="text-gray-600 hover:text-dark-blue">Privacy Policy</a>
                 <a href="#" class="text-gray-600 hover:text-dark-blue">FAQ</a>
-                <!-- REMOVED (Demo) -->
-                <a href="#" class="text-gray-600 hover:text-dark-blue">Terms & Conditions</a>
-                <!-- REMOVED (Demo Process) -->
-                <p class="text-gray-400 mt-2 w-full text-center">Booking Available for All States</p>
+                <p class="text-gray-400 mt-2 w-full text-center">Guide Available for All States</p>
             </div>
         </div>
     </footer>
@@ -395,15 +361,15 @@
             setTimeout(() => notification.remove(), 3300);
         }
 
-        // Function to generate a random 5-digit Order ID
+        // Function to generate a random 5-digit Guide ID
         function generateRandomOrderID() {
             // Generates a random number between 10000 and 99999
             const randomNum = Math.floor(10000 + Math.random() * 90000); 
-            return `ORD${randomNum}`;
+            return `GUIDE-${randomNum}`;
         }
 
         /**
-         * The new function triggered by 'Apply Now' buttons. It switches to the form screen.
+         * The new function triggered by 'Click Here' buttons. It switches to the form screen.
          * @param {string} vehicleType - The type of vehicle (e.g., 'Old Vehicle', 'Electric Vehicle').
          */
         function handleApplyNow(vehicleType) {
@@ -416,7 +382,7 @@
             clearInterval(paymentTimerInterval);
             document.getElementById('selection-screen').classList.remove('hidden');
             document.getElementById('booking-form-screen').classList.add('hidden');
-            document.getElementById('payment-screen').classList.add('hidden'); // Hide payment screen
+            document.getElementById('payment-screen').classList.add('hidden'); // Hide confirmation step
             document.getElementById('thank-you-screen').classList.add('hidden'); // NEW: Hide thank you screen
             currentStep = 1; // Reset step
         }
@@ -426,10 +392,10 @@
             selectedVehicleType = vehicleType;
             document.getElementById('selection-screen').classList.add('hidden');
             document.getElementById('booking-form-screen').classList.remove('hidden');
-            document.getElementById('payment-screen').classList.add('hidden'); // Ensure payment is hidden
+            document.getElementById('payment-screen').classList.add('hidden'); // Ensure confirmation is hidden
             document.getElementById('thank-you-screen').classList.add('hidden'); // Ensure thank you is hidden
-            // Update title based on selection (HSRP changed to Plate)
-            document.getElementById('form-title').textContent = `${vehicleType} Plate Booking`;
+            // Update title based on selection 
+            document.getElementById('form-title').textContent = `${vehicleType} Plate Guide`;
             
             // Render Step 1
             renderStep(1);
@@ -442,83 +408,82 @@
             const step2 = document.getElementById('step-2-personal');
             const subtitle = document.getElementById('form-subtitle');
             const nextBtn = document.getElementById('next-button');
-            const submitBtn = document.getElementById('submit-button');
+            const reviewBtn = document.getElementById('review-button');
             
             step1.classList.add('hidden');
             step2.classList.add('hidden');
             nextBtn.classList.add('hidden');
-            submitBtn.classList.add('hidden');
+            reviewBtn.classList.add('hidden');
             
             if (step === 1) {
                 step1.classList.remove('hidden');
                 nextBtn.classList.remove('hidden');
-                submitBtn.classList.add('hidden'); // Ensure submit is hidden on step 1
-                subtitle.textContent = "Step 1 of 2: Vehicle Details (वाहन विवरण)";
+                reviewBtn.classList.add('hidden'); 
+                subtitle.textContent = "Step 1 of 3: Vehicle Details (वाहन विवरण)";
                 nextBtn.textContent = "Next: Personal Details →";
             } else if (step === 2) {
                 step2.classList.remove('hidden');
-                nextBtn.classList.add('hidden'); // Ensure next is hidden on step 2
-                submitBtn.classList.remove('hidden');
-                subtitle.textContent = "Step 2 of 2: Personal Details (व्यक्तिगत विवरण)";
+                nextBtn.classList.add('hidden'); 
+                reviewBtn.classList.remove('hidden');
+                subtitle.textContent = "Step 2 of 3: Personal Details (व्यक्तिगत विवरण)";
             }
         }
 
-        // Function to move from Step 1 to Step 2
+        // Function to move from Step 1 to Step 2 (and then to final confirmation step)
         function nextStep() {
-            // Basic validation for Step 1
-            const state = document.getElementById('state-select').value;
-            const regNo = document.getElementById('reg-number').value;
-            const chassis = document.getElementById('chassis-number').value;
-            const engine = document.getElementById('engine-number').value;
-            const vehicleClass = document.getElementById('vehicle-class-select').value;
+            if (currentStep === 1) {
+                // Basic validation for Step 1
+                const state = document.getElementById('state-select').value;
+                const regNo = document.getElementById('reg-number').value;
+                const chassis = document.getElementById('chassis-number').value;
+                const engine = document.getElementById('engine-number').value;
+                const vehicleClass = document.getElementById('vehicle-class-select').value;
 
+                if (!state || !regNo || !chassis || !engine || !vehicleClass) {
+                    alert('Please fill in all mandatory Vehicle Details before proceeding. (कृपया आगे बढ़ने से पहले सभी अनिवार्य वाहन विवरण भरें।)');
+                    return;
+                }
+                if (chassis.length !== 6 || engine.length !== 6) {
+                    alert('Chassis and Engine numbers must be the last 6 digits. (चेसिस और इंजन नंबर अंतिम 6 अंक होने चाहिए।)');
+                    return;
+                }
+                renderStep(2);
 
-            if (!state || !regNo || !chassis || !engine || !vehicleClass) {
-                alert('Please fill in all mandatory Vehicle Details before proceeding. (कृपया आगे बढ़ने से पहले सभी अनिवार्य वाहन विवरण भरें।)');
-                return;
+            } else if (currentStep === 2) {
+                // Basic validation for Step 2
+                const name = document.getElementById('full-name').value;
+                const mobile = document.getElementById('mobile-number').value;
+                const email = document.getElementById('email-address').value;
+                const address = document.getElementById('full-address').value;
+                const city = document.getElementById('city').value;
+                const pincode = document.getElementById('pincode').value;
+
+                if (!name || !mobile || !email || !address || !city || !pincode) {
+                    alert('Please fill in all mandatory Personal Details before submitting. (कृपया जमा करने से पहले सभी व्यक्तिगत विवरण भरें।)');
+                    return;
+                }
+                
+                // --- Transition to Final Confirmation Step ---
+                showFinalConfirmationStep();
             }
-            if (chassis.length !== 6 || engine.length !== 6) {
-                alert('Chassis and Engine numbers must be the last 6 digits. (चेसिस और इंजन नंबर अंतिम 6 अंक होने चाहिए।)');
-                return;
-            }
-            renderStep(2);
         }
 
-        // Function to handle form submission (simulated)
-        function submitBooking() {
-            // Basic validation for Step 2
-            const name = document.getElementById('full-name').value;
-            const mobile = document.getElementById('mobile-number').value;
-            const email = document.getElementById('email-address').value;
-            const address = document.getElementById('full-address').value;
-            const city = document.getElementById('city').value;
-            const pincode = document.getElementById('pincode').value;
-
-            if (!name || !mobile || !email || !address || !city || !pincode) {
-                alert('Please fill in all mandatory Personal Details before submitting. (कृपया जमा करने से पहले सभी व्यक्तिगत विवरण भरें।)');
-                return;
-            }
-            
-            // --- NEW: Transition to Payment Screen ---
-            showPaymentScreen();
-        }
-
-        // Function to display the payment screen with dynamic Order ID
-        function showPaymentScreen() {
+        // Function to display the final confirmation step screen
+        function showFinalConfirmationStep() {
             document.getElementById('booking-form-screen').classList.add('hidden');
             document.getElementById('payment-screen').classList.remove('hidden');
 
-            // Generate a unique Order ID every time
+            // Generate a unique Guide ID every time
             const orderId = generateRandomOrderID();
             
-            // Update Payment Details
+            // Update Details
             document.getElementById('payment-order-id').textContent = orderId;
 
             // Start the simulated 5-minute timer
             startPaymentTimer(300); // 300 seconds = 5 minutes
         }
 
-        // Function to start the 5-minute payment timer
+        // Function to start the 5-minute confirmation timer
         function startPaymentTimer(duration) {
             let timer = duration;
             const display = document.getElementById('payment-timer');
@@ -538,22 +503,15 @@
                 if (--timer < 0) {
                     clearInterval(paymentTimerInterval);
                     display.textContent = "Expired";
-                    alert("Payment window has expired. Please restart the booking. (भुगतान समय समाप्त हो गया है। कृपया बुकिंग फिर से शुरू करें।)");
+                    alert("Confirmation window has expired. Please restart the guide. (पुष्टि का समय समाप्त हो गया है। कृपया गाइड फिर से शुरू करें।)");
                 }
             }, 1000);
         }
         
-        // NEW FUNCTION: Handle transaction verification and show thank you screen
+        // FUNCTION: Handle transaction verification and show thank you screen
         function verifyTransaction() {
-            const screenshotInput = document.getElementById('screenshot-input');
-
-            if (screenshotInput.files.length === 0) {
-                alert('Please upload the payment screenshot to confirm booking. (बुकिंग की पुष्टि के लिए कृपया भुगतान का स्क्रीनशॉट अपलोड करें।)');
-                return;
-            }
-            
             // Simulating successful verification and submission
-            alert('Screenshot uploaded successfully. Confirming booking...');
+            alert('Guide process finalized successfully. Showing confirmation...');
             
             // Simulating a short delay before showing the final screen
             setTimeout(() => {
@@ -561,7 +519,7 @@
             }, 1000);
         }
         
-        // NEW FUNCTION: Display the Thank You screen
+        // FUNCTION: Display the Thank You screen
         function showThankYouScreen() {
             // Clear any active timers
             clearInterval(paymentTimerInterval);
