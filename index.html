@@ -1,375 +1,675 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Road Safety: Human Behaviour First</title>
-   <!-- Load Tailwind CSS -->
-   <script src="https://cdn.tailwindcss.com"></script>
-   <style>
-       /* Custom font and scroll behavior */
-       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-       body {
-           font-family: 'Inter', sans-serif;
-           background-color: #f7f9fb;
-       }
-       .header-shadow {
-           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-       }
-   </style>
-   <script>
-       tailwind.config = {
-           theme: {
-               extend: {
-                   colors: {
-                       'safety-primary': '#1e40af', /* Dark Blue */
-                       'safety-secondary': '#3b82f6', /* Blue */
-                       'safety-accent': '#f59e0b', /* Amber/Orange */
-                   }
-               }
-           }
-       }
-      
-       // Global variable to track the current page
-       let currentPage = 'home';
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSRP Awareness and Document Guide</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Configuration for Theme and Font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // --- PRIMARY BLUE COLOR FOR BUTTONS (Used for Tailwind utility classes) ---
+                        'primary-blue': '#0644F4', // Button color
+                        'dark-blue': '#0432B8',   // Darker shade for button shadow
+                        // --- END PRIMARY BLUE COLOR FOR BUTTONS ---
+                        'accent-orange': '#FF9933',
+                        'accent-green': '#138808',
+                        'dark-gray': '#1F2937',
+                        // --- CARD COLORS ---
+                        'card-old-bg': '#FBBC05', 
+                        'card-new-bg': '#3E83F4', 
+                        'card-ev-bg': '#34A853',  
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Ensure Inter font is loaded for better look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* IMPORTANT FIX: Define CSS Variables globally so the .cta-button class can access them */
+        :root {
+            --primary-blue: #0644F4;
+            --dark-blue: #0432B8;
+        }
 
-
-       /**
-        * Function to simulate page navigation in a single-page application (SPA) style.
-        * Hides all content sections and shows only the one corresponding to the targetPage.
-        */
-       function navigateTo(targetPage) {
-           // Hide all pages (sections marked with .app-page)
-           document.querySelectorAll('.app-page').forEach(page => {
-               page.classList.add('hidden');
-           });
-
-
-           // Show the target page
-           const targetElement = document.getElementById(`page-${targetPage}`);
-           if (targetElement) {
-               targetElement.classList.remove('hidden');
-               currentPage = targetPage;
-               window.scrollTo(0, 0); // Scroll to top on navigation
-           }
-          
-           // Close mobile menu if open
-           const mobileMenu = document.getElementById('mobile-menu');
-           const mobileMenuButton = document.getElementById('mobile-menu-button');
-           if (!mobileMenu.classList.contains('hidden')) {
-               mobileMenu.classList.add('hidden');
-               mobileMenuButton.setAttribute('aria-expanded', 'false');
-           }
-       }
-
-
-       // Initialize the first page view when the DOM is loaded
-       document.addEventListener('DOMContentLoaded', () => {
-           // Ensure all pages start hidden, then show the home page
-           document.querySelectorAll('.app-page').forEach(page => {
-               page.classList.add('hidden');
-           });
-           navigateTo('home');
-       });
-   </script>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light background */
+        }
+        /* Style for the tricolor logo */
+        .tricolor-logo {
+            background: linear-gradient(45deg, #FF9933 33%, #FFFFFF 33%, #FFFFFF 67%, #138808 67%);
+            color: #1F2937;
+            border-radius: 9999px; /* Full rounded circle */
+        }
+        /* Specific button style for consistent look and 'pop' effect */
+        .cta-button {
+            /* Now correctly using the defined CSS variable for the mandatory blue color */
+            background-color: var(--primary-blue); 
+            border-bottom: 6px solid var(--dark-blue); /* Thicker bottom border using dark-blue */
+            transition: all 0.15s ease-in-out; /* Smooth transitions for movement */
+        }
+        .cta-button:hover {
+            background-color: #1F63F8; /* Adjusted lighter blue for hover */
+            transform: translateY(-2px); /* Slight upward lift */
+            box-shadow: 0 8px 15px rgba(4, 50, 184, 0.4); /* Stronger shadow on hover (based on dark-blue) */
+        }
+        .cta-button:active {
+            transform: translateY(2px); /* Pressed effect (moves down) */
+            border-bottom-width: 2px; /* Bottom border shrinks */
+            box-shadow: none; /* Shadow disappears when pressed */
+        }
+    </style>
 </head>
-<body class="text-gray-800">
+<body class="antialiased">
+
+    <!-- Header / Navbar (Tricolor Branding) -->
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <!-- Logo Area (Tricolor HSRP Logo) -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 flex items-center justify-center font-extrabold text-lg tricolor-logo border border-gray-300">
+                    HSRP
+                </div>
+                <h1 class="text-xl font-extrabold text-dark-gray">
+                    HSRP Book
+                </h1>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <!-- LINK UPDATED: External link for Home -->
+                <a href="https://bookmyhsrp.com/" target="_blank" class="text-primary-blue hover:text-dark-blue transition duration-150">Home</a>
+                <a href="#report" class="text-gray-600 hover:text-dark-blue transition duration-150">About HSRP</a>
+                <a href="#faqs" class="text-gray-600 hover:text-dark-blue transition duration-150">FAQs</a>
+                <a href="#contact" class="text-gray-600 hover:text-dark-blue transition duration-150">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+        
+        <!-- === 1. Selection Screen (Visible by default) === -->
+        <div id="selection-screen">
+            <h2 class="text-center text-2xl md:text-3xl font-bold text-dark-gray mb-12">
+                Select the type of HSRP you need help with (HSRP प्रकार चुनें)
+            </h2>
+
+            <!-- Booking Options Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+
+                <!-- Card 1: Old Vehicle HSRP -->
+                <div class="bg-card-old-bg p-6 rounded-xl shadow-lg border-2 border-yellow-700/50 flex flex-col justify-between transform hover:shadow-xl hover:scale-[1.01] transition duration-300">
+                    <h3 class="text-xl font-extrabold text-dark-gray">Old Vehicle HSRP</h3>
+                    <p class="text-gray-700 mt-2 flex-grow">
+                        Get plate for old/existing vehicles (पुराने/मौजूदा वाहनों के लिए प्लेट प्राप्त करें)
+                    </p>
+                    <button onclick="handleApplyNow('Old Vehicle')" class="inline-block mt-6 px-6 py-2 text-md font-black text-white rounded-lg shadow-xl text-center cta-button">
+                        Apply Now →
+                    </button>
+                </div>
+
+                <!-- Card 2: New Vehicle HSRP -->
+                <div class="bg-card-new-bg p-6 rounded-xl shadow-lg border-2 border-blue-700/50 flex flex-col justify-between transform hover:shadow-xl hover:scale-[1.01] transition duration-300 text-white">
+                    <h3 class="text-xl font-extrabold">New Vehicle HSRP</h3>
+                    <p class="text-white/90 mt-2 flex-grow">
+                        Get plate for newly registered vehicles (नए पंजीकृत वाहनों के लिए प्लेट प्राप्त करें)
+                    </p>
+                    <button onclick="handleApplyNow('New Vehicle')" class="inline-block mt-6 px-6 py-2 text-md font-black text-white rounded-lg shadow-xl text-center cta-button">
+                        Apply Now →
+                    </button>
+                </div>
+
+                <!-- Card 3: HSRP for Electric Vehicles -->
+                <div class="bg-card-ev-bg p-6 rounded-xl shadow-lg border-2 border-green-700/50 flex flex-col justify-between transform hover:shadow-xl hover:scale-[1.01] transition duration-300 text-white">
+                    <h3 class="text-xl font-extrabold">HSRP for Electric Vehicles</h3>
+                    <p class="text-white/90 mt-2 flex-grow">
+                        Get plate for electric vehicles (इलेक्ट्रिक वाहनों के लिए प्लेट प्राप्त करें)
+                    </p>
+                    <button onclick="handleApplyNow('Electric Vehicle')" class="inline-block mt-6 px-6 py-2 text-md font-black text-white rounded-lg shadow-xl text-center cta-button">
+                        Apply Now →
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Grievance Addressal Section -->
+            <div class="max-w-xl mx-auto mt-10">
+                <div class="bg-primary-blue p-6 rounded-xl shadow-xl flex flex-col sm:flex-row justify-between items-center">
+                    <div class="text-white text-center sm:text-left mb-4 sm:mb-0">
+                        <h3 class="text-xl font-extrabold">Grievance Addressal</h3>
+                        <p class="text-sm text-blue-200 mt-1">Please reach out to us for any issues related to awareness or process.</p>
+                    </div>
+                    <!-- This button is symbolic and uses bg-white -->
+                    <button onclick="alert('This is a simulated enquiry. For real issues, please contact the official helpline 1800-XXX-XXXX.')" 
+                            class="px-8 py-2 text-md font-bold bg-white text-primary-blue rounded-lg shadow-md hover:bg-gray-100 transition duration-150">
+                        Enquiry
+                    </button>
+                </div>
+            </div>
+
+            <!-- Awareness Message -->
+            <div class="mt-16 text-center text-gray-500 text-sm italic">
+                <p>We run this site purely for public awareness, ensuring citizens learn the correct HSRP booking process.</p>
+                <p>Road Safety is our core focus.</p>
+            </div>
+            
+            <!-- Detailed Report Section (Kept for context/scrolling) -->
+            <section id="report" class="max-w-7xl mx-auto py-10 md:py-16 bg-white shadow-xl rounded-xl my-10 px-6">
+                <h2 class="text-3xl font-extrabold text-dark-gray mb-6 border-b pb-2">HSRP and Road Safety in India: An Awareness Report</h2>
+                
+                <!-- Section 1: Important Disclaimer and Objective -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-4">Section 1: Important Disclaimer and Objective</h3>
+                    <div class="bg-red-50 border-l-4 border-red-600 p-4 rounded-lg mt-4">
+                        <p class="font-semibold text-red-700">Disclaimer:</p>
+                        <p class="text-red-600 mt-1">It is explicitly declared that this platform does not accept any payment or fees for booking HSRP. The goal is only to teach the correct procedure. All users are requested to make payments for HSRP only on the official portal.</p>
+                    </div>
+                </div>
+
+                <!-- Section 2: Introduction -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-dark-gray mb-4">Section 2: Introduction - Towards a Safer Road</h3>
+                    <p class="text-gray-700 leading-relaxed">Road safety is a serious challenge in India today. To address this, the government has launched the **High-Security Registration Plates (HSRP)** initiative. HSRP is a security device that standardizes vehicle identification and helps control crime. This report provides an awareness guide on HSRP features and its positive impact on road safety.</p>
+                </div>
+                
+                <!-- Section 3: The Need for HSRP -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-dark-gray mb-4">Section 3: The Need for HSRP - Security and Standardization</h3>
+                    <p class="font-semibold mt-4">Key Security Features of HSRP:</p>
+                    <ul class="list-disc list-inside text-gray-700 ml-4 space-y-1 mt-2">
+                        <li>**Chromium-Based Hologram:** Ensures plate authenticity.</li>
+                        <li>**Laser Etched Unique PIN:** Permanent identification link to the chassis.</li>
+                        <li>**Retro-Reflective Film:** Improves visibility in low-light conditions, preventing accidents.</li>
+                        <li>**Snap Lock / Non-Reusable Lock:** Prevents plate swapping and theft.</li>
+                    </ul>
+                </div>
+                
+                <!-- Section 7: Broader Benefits -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-dark-gray mb-4">Section 4: Broader Benefits</h3>
+                    <ul class="list-disc list-inside text-gray-700 ml-4 space-y-1 mt-2">
+                        <li>**Digital Integration:** Centralized database ensures tax compliance and national vehicle identity.</li>
+                        <li>**E-Challan System:** Standardized plates boost the accuracy of E-Challan cameras.</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-8 pt-4 border-t">
+                    <h3 class="text-xl font-bold text-primary-blue">Conclusion:</h3>
+                    <p class="text-gray-700 italic mt-2">HSRP is a far-sighted step towards bringing security, identity, and accountability to India's roads. Awareness platforms like this website play a vital role in making this change successful. Spread awareness, learn the correct procedure, and move towards a safer India.</p>
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- === 2. Booking Form Screen (Initially hidden) === -->
+        <div id="booking-form-screen" class="hidden">
+            <div id="form-container" class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border border-gray-200">
+                <h2 class="text-3xl font-extrabold text-primary-blue mb-2" id="form-title">
+                    HSRP Booking
+                </h2>
+                <p class="text-gray-500 mb-8 font-semibold" id="form-subtitle">
+                    Step 1 of 2: Vehicle Details (वाहन विवरण)
+                </p>
+
+                <!-- Step 1 Content -->
+                <div id="step-1-vehicle" class="space-y-6">
+                    <!-- Content injected via JavaScript -->
+                </div>
+
+                <!-- Step 2 Content -->
+                <div id="step-2-personal" class="space-y-6 hidden">
+                    <!-- Content injected via JavaScript -->
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-100">
+                    <!-- 'Back' button remains functional for internal form navigation -->
+                    <button id="back-button" onclick="goBackToSelection()" class="px-6 py-2 text-md font-semibold text-white bg-gray-600 rounded-lg hover:bg-gray-700 transition duration-150 shadow-md">
+                        ← Back
+                    </button>
+                    <!-- 'Next' button now correctly shows Blue (cta-button) -->
+                    <button id="next-button" onclick="nextStep()" class="px-8 py-3 text-md font-bold text-white rounded-lg shadow-xl text-center cta-button">
+                        Next: Personal Details →
+                    </button>
+                    <!-- 'Submit' button now correctly shows Blue (cta-button) -->
+                    <button id="submit-button" onclick="submitBooking()" class="px-8 py-3 text-md font-bold text-white rounded-lg shadow-xl text-center cta-button hidden">
+                        Submit Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- === 3. Payment Screen (Initially hidden) === -->
+        <div id="payment-screen" class="hidden max-w-lg mx-auto">
+            <div class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border border-gray-200 text-center">
+                
+                <h2 class="text-3xl font-extrabold text-dark-gray mb-2">HSRP PAYMENT (भुगतान)</h2>
+                <p class="text-gray-500 mb-6 font-semibold">Complete your booking by making the payment.</p>
+
+                <!-- Order Details -->
+                <div class="text-lg font-medium text-gray-700 space-y-2 mb-8">
+                    <p>Order ID: <span id="payment-order-id" class="font-bold text-primary-blue">ORDXXXXX</span></p>
+                    <p>Amount: <span id="payment-amount" class="font-bold text-accent-green">₹1198</span></p>
+                </div>
+
+                <!-- QR Code Placeholder -->
+                <div class="border-2 border-gray-300 p-4 inline-block rounded-lg shadow-inner bg-gray-50">
+                    <img src="https://i.postimg.cc/9f0D9czR/Whats-App-Image-2025-12-03-at-4-27-40-PM.jpg" 
+                         alt="QR Code Placeholder for Payment" 
+                         class="w-48 h-48 mx-auto" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/200x200/F8D7DA/721C24?text=Image+Error';">
+                    <p class="text-sm text-gray-500 mt-2">Scan QR to Pay</p>
+                </div>
+                
+                <!-- Transaction Verification Section (NEW - Replaces Download QR) -->
+                <div id="transaction-upload-section" class="mt-6 p-4 bg-gray-100 rounded-lg border border-gray-200">
+                    <label for="transaction-number" class="block text-sm font-medium text-gray-700 text-left mb-2">
+                        Enter Demo Transaction ID (UPI/Bank Ref.)
+                    </label>
+                    <input type="text" id="transaction-number" placeholder="Enter 12-digit Ref. Number (e.g., UPL123456789)" 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue uppercase text-sm">
+                    <button onclick="verifyTransaction()" class="w-full mt-4 px-6 py-2 text-md font-bold text-white bg-accent-green rounded-lg hover:bg-green-700 transition duration-150 shadow-md">
+                        Verify Transaction and Confirm Booking
+                    </button>
+                </div>
+
+                <!-- Timer and Disclaimer -->
+                <div class="bg-yellow-100 p-3 rounded-lg mt-8 text-yellow-800 font-medium">
+                    <p>Payment must be completed within <span id="payment-timer">05:00</span></p>
+                </div>
+                
+                <p class="text-sm text-gray-500 mt-4">Your payment will be auto captured after confirmation.</p>
+
+                <!-- Payment Methods Placeholder (जैसा आपने इमेज में दिखाया था) -->
+                <div class="mt-6">
+                    <img src="https://placehold.co/400x50/F0F0F0/000?text=BHIM+%C2%B7+UPI+%C2%B7+G+Pay+%C2%B7+PhonePe+%C2%B7+Paytm+%C2%B7+Amazon+Pay" 
+                         alt="Supported Payment Methods" 
+                         class="mx-auto rounded-md">
+                </div>
+                
+                <!-- Back to Home Button UPDATED TO EXTERNAL LINK -->
+                <a href="https://bookmyhsrp.com/" target="_blank" class="mt-8 px-6 py-2 text-md font-semibold text-white bg-gray-600 rounded-lg hover:bg-gray-700 transition duration-150 shadow-md inline-block">
+                    ← Back to Home
+                </a>
+
+            </div>
+        </div>
+
+        <!-- === 4. Thank You Screen (NEW - Initially hidden) === -->
+        <div id="thank-you-screen" class="hidden max-w-lg mx-auto">
+            <div class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border border-gray-200 text-center">
+                
+                <!-- Confirmed Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-accent-green mb-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+
+                <h2 class="text-3xl font-extrabold text-accent-green mb-1">धन्यवाद! आपकी HSR Plate बुकिंग सफल हो गई। 🎉</h2>
+                <h2 class="text-xl font-bold text-dark-gray mb-6">Thank You! Your HSR Plate Booking is Confirmed 🎉</h2>
+
+                <!-- Note Section -->
+                <div class="bg-blue-50 border-l-4 border-primary-blue p-4 rounded-lg text-left mt-8">
+                    <p class="font-bold text-primary-blue mb-2">Note / नोट:</p>
+                    <p class="text-gray-700 text-sm mb-2">आपकी बुकिंग सुरक्षित हो गई है। आपका HSR Plate नंबर प्लेट 14–21 दिनों में डिलीवर किया जाएगा।</p>
+                    <p class="text-gray-700 text-sm">Your booking is secure! Your HSR Plate number plate will be delivered within 14–21 days.</p>
+                </div>
+
+                <!-- Back to Home Button UPDATED TO EXTERNAL LINK -->
+                <a href="https://bookmyhsrp.com/" target="_blank" class="mt-8 px-6 py-3 text-md font-bold text-white rounded-lg shadow-xl text-center cta-button inline-block">
+                    ← Back to Home
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer with Links -->
+    <footer class="bg-white border-t border-gray-200 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center text-sm font-semibold space-x-4 md:space-x-8">
+                <a href="#report" class="text-gray-600 hover:text-dark-blue">About HSRP</a>
+                <a href="#" class="text-gray-600 hover:text-dark-blue">Safe & Secure Transaction (Demo)</a>
+                <a href="#" class="text-gray-600 hover:text-dark-blue">Privacy Policy (Demo)</a>
+                <a href="#" class="text-gray-600 hover:text-dark-blue">FAQ</a>
+                <a href="#" class="text-gray-600 hover:text-dark-blue">Terms & Conditions (Demo)</a>
+                <!-- Booking Available for (Placeholder as in the image) -->
+                <p class="text-gray-400 mt-2 w-full text-center">Booking Available for All States (Demo Process)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form state variables
+        let currentStep = 1;
+        let selectedVehicleType = ''; // Stores the type from the clicked card
+        let paymentTimerInterval; // To hold the timer interval
+        
+        // Data for all Indian States/UTs (Code: Name)
+        const indianStates = {
+            "AN": "Andaman and Nicobar Islands", "AP": "Andhra Pradesh", "AR": "Arunachal Pradesh",
+            "AS": "Assam", "BR": "Bihar", "CH": "Chandigarh", "CG": "Chhattisgarh", "DH": "Dadra and Nagar Haveli and Daman and Diu",
+            "DL": "Delhi", "GA": "Goa", "GJ": "Gujarat", "HR": "Haryana", "HP": "Himachal Pradesh",
+            "JK": "Jammu and Kashmir", "JH": "Jharkhand", "KA": "Karnataka", "KL": "Kerala",
+            "LA": "Ladakh", "LD": "Lakshadweep", "MP": "Madhya Pradesh", "MH": "Maharashtra",
+            "MN": "Manipur", "ML": "Meghalaya", "MZ": "Mizoram", "NL": "Nagaland", "OD": "Odisha",
+            "PY": "Puducherry", "PB": "Punjab", "RJ": "Rajasthan", "SK": "Sikkim", "TN": "Tamil Nadu",
+            "TS": "Telangana", "TR": "Tripura", "UP": "Uttar Pradesh", "UK": "Uttarakhand", "WB": "West Bengal"
+        };
+
+        // Placeholder for alert to mimic real functionality without using window.alert
+        function alert(message) {
+            console.log("SIMULATED ALERT:", message);
+            // In a real environment, you would use a custom modal here.
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: #B91C1C; /* Danger Red */
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                font-weight: bold;
+                transition: opacity 0.3s ease-in-out;
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.style.opacity = 0, 3000);
+            setTimeout(() => notification.remove(), 3300);
+        }
+
+        // Function to generate a random 5-digit Order ID
+        function generateRandomOrderID() {
+            // Generates a random number between 10000 and 99999
+            const randomNum = Math.floor(10000 + Math.random() * 90000); 
+            return `ORD${randomNum}`;
+        }
+
+        /**
+         * The new function triggered by 'Apply Now' buttons. It switches to the form screen.
+         * @param {string} vehicleType - The type of vehicle (e.g., 'Old Vehicle', 'Electric Vehicle').
+         */
+        function handleApplyNow(vehicleType) {
+            showForm(vehicleType);
+        }
+        
+        // Function to go back to the main card selection screen (Still needed for the 'Back' button in the form)
+        function goBackToSelection() {
+            // Clear any active timers when returning to the home screen
+            clearInterval(paymentTimerInterval);
+            document.getElementById('selection-screen').classList.remove('hidden');
+            document.getElementById('booking-form-screen').classList.add('hidden');
+            document.getElementById('payment-screen').classList.add('hidden'); // Hide payment screen
+            document.getElementById('thank-you-screen').classList.add('hidden'); // NEW: Hide thank you screen
+            currentStep = 1; // Reset step
+        }
+
+        // Function to show the main form container
+        function showForm(vehicleType) {
+            selectedVehicleType = vehicleType;
+            document.getElementById('selection-screen').classList.add('hidden');
+            document.getElementById('booking-form-screen').classList.remove('hidden');
+            document.getElementById('payment-screen').classList.add('hidden'); // Ensure payment is hidden
+            document.getElementById('thank-you-screen').classList.add('hidden'); // Ensure thank you is hidden
+            // Update title based on selection
+            document.getElementById('form-title').textContent = `${vehicleType} HSRP Booking`;
+            
+            // Render Step 1
+            renderStep(1);
+        }
+
+        // Function to manage visibility and titles for form steps
+        function renderStep(step) {
+            currentStep = step;
+            const step1 = document.getElementById('step-1-vehicle');
+            const step2 = document.getElementById('step-2-personal');
+            const subtitle = document.getElementById('form-subtitle');
+            const nextBtn = document.getElementById('next-button');
+            const submitBtn = document.getElementById('submit-button');
+            
+            step1.classList.add('hidden');
+            step2.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+            submitBtn.classList.add('hidden');
+            
+            if (step === 1) {
+                step1.classList.remove('hidden');
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden'); // Ensure submit is hidden on step 1
+                subtitle.textContent = "Step 1 of 2: Vehicle Details (वाहन विवरण)";
+                nextBtn.textContent = "Next: Personal Details →";
+            } else if (step === 2) {
+                step2.classList.remove('hidden');
+                nextBtn.classList.add('hidden'); // Ensure next is hidden on step 2
+                submitBtn.classList.remove('hidden');
+                subtitle.textContent = "Step 2 of 2: Personal Details (व्यक्तिगत विवरण)";
+            }
+        }
+
+        // Function to move from Step 1 to Step 2
+        function nextStep() {
+            // Basic validation for Step 1
+            const state = document.getElementById('state-select').value;
+            const regNo = document.getElementById('reg-number').value;
+            const chassis = document.getElementById('chassis-number').value;
+            const engine = document.getElementById('engine-number').value;
+            const vehicleClass = document.getElementById('vehicle-class-select').value;
 
 
-   <!-- Navigation Bar -->
-   <header class="sticky top-0 z-50 bg-white header-shadow">
-       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="flex items-center justify-between h-16">
-               <!-- Logo/Title -->
-               <div class="flex-shrink-0">
-                   <!-- Updated: Use JS navigation to 'home' page -->
-                   <a href="javascript:void(0)" onclick="navigateTo('home')" class="text-2xl font-extrabold text-safety-primary">
-                       Behaviour First
-                   </a>
-               </div>
-               <!-- Desktop Links -->
-               <div class="hidden md:block">
-                   <div class="ml-10 flex items-baseline space-x-4">
-                       <!-- Updated: Use JS navigation instead of anchors -->
-                       <a href="javascript:void(0)" onclick="navigateTo('home')" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-safety-secondary hover:text-white transition duration-150">Home</a>
-                       <a href="javascript:void(0)" onclick="navigateTo('about')" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-safety-secondary hover:text-white transition duration-150">About Us</a>
-                       <a href="javascript:void(0)" onclick="navigateTo('faqs')" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-safety-secondary hover:text-white transition duration-150">FAQs</a>
-                       <a href="javascript:void(0)" onclick="navigateTo('contact')" class="px-3 py-2 rounded-lg text-sm font-medium bg-safety-accent text-white hover:bg-yellow-600 transition duration-150">Contact Us</a>
-                   </div>
-               </div>
-               <!-- Mobile Menu Button -->
-               <div class="-mr-2 flex md:hidden">
-                   <button id="mobile-menu-button" type="button" class="bg-safety-primary inline-flex items-center justify-center p-2 rounded-lg text-white hover:text-white hover:bg-safety-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-safety-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                       <span class="sr-only">Open main menu</span>
-                       <!-- Icon when menu is closed -->
-                       <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                       </svg>
-                       <!-- Icon when menu is open -->
-                       <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                       </svg>
-                   </button>
-               </div>
-           </div>
-       </nav>
-       <!-- Mobile Menu -->
-       <div class="md:hidden hidden" id="mobile-menu">
-           <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-               <!-- Updated: Use JS navigation instead of anchors -->
-               <a href="javascript:void(0)" onclick="navigateTo('home')" class="text-gray-700 hover:bg-safety-secondary hover:text-white block px-3 py-2 rounded-lg text-base font-medium transition duration-150">Home</a>
-               <a href="javascript:void(0)" onclick="navigateTo('about')" class="text-gray-700 hover:bg-safety-secondary hover:text-white block px-3 py-2 rounded-lg text-base font-medium transition duration-150">About Us</a>
-               <a href="javascript:void(0)" onclick="navigateTo('faqs')" class="text-gray-700 hover:bg-safety-secondary hover:text-white block px-3 py-2 rounded-lg text-base font-medium transition duration-150">FAQs</a>
-               <a href="javascript:void(0)" onclick="navigateTo('contact')" class="text-white bg-safety-accent block px-3 py-2 rounded-lg text-base font-medium transition duration-150">Contact Us</a>
-           </div>
-       </div>
-   </header>
+            if (!state || !regNo || !chassis || !engine || !vehicleClass) {
+                alert('Please fill in all mandatory Vehicle Details before proceeding. (कृपया आगे बढ़ने से पहले सभी अनिवार्य वाहन विवरण भरें।)');
+                return;
+            }
+            if (chassis.length !== 6 || engine.length !== 6) {
+                alert('Chassis and Engine numbers must be the last 6 digits. (चेसिस और इंजन नंबर अंतिम 6 अंक होने चाहिए।)');
+                return;
+            }
+            renderStep(2);
+        }
+
+        // Function to handle form submission (simulated)
+        function submitBooking() {
+            // Basic validation for Step 2
+            const name = document.getElementById('full-name').value;
+            const mobile = document.getElementById('mobile-number').value;
+            const email = document.getElementById('email-address').value;
+            const address = document.getElementById('full-address').value;
+            const city = document.getElementById('city').value;
+            const pincode = document.getElementById('pincode').value;
+
+            if (!name || !mobile || !email || !address || !city || !pincode) {
+                alert('Please fill in all mandatory Personal Details before submitting. (कृपया जमा करने से पहले सभी व्यक्तिगत विवरण भरें।)');
+                return;
+            }
+            
+            // --- NEW: Transition to Payment Screen ---
+            showPaymentScreen();
+        }
+
+        // Function to display the payment screen with dynamic Order ID
+        function showPaymentScreen() {
+            document.getElementById('booking-form-screen').classList.add('hidden');
+            document.getElementById('payment-screen').classList.remove('hidden');
+
+            // Generate a unique Order ID every time
+            const orderId = generateRandomOrderID();
+            
+            // Update Payment Details
+            document.getElementById('payment-order-id').textContent = orderId;
+            // Amount is fixed as per request
+            document.getElementById('payment-amount').textContent = '₹1198'; 
+
+            // Start the simulated 5-minute timer
+            startPaymentTimer(300); // 300 seconds = 5 minutes
+        }
+
+        // Function to start the 5-minute payment timer
+        function startPaymentTimer(duration) {
+            let timer = duration;
+            const display = document.getElementById('payment-timer');
+
+            // Clear any existing timer first
+            clearInterval(paymentTimerInterval);
+
+            paymentTimerInterval = setInterval(() => {
+                const minutes = parseInt(timer / 60, 10);
+                const seconds = parseInt(timer % 60, 10);
+
+                const mins = minutes < 10 ? "0" + minutes : minutes;
+                const secs = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = mins + ":" + secs;
+
+                if (--timer < 0) {
+                    clearInterval(paymentTimerInterval);
+                    display.textContent = "Expired";
+                    alert("Payment window has expired. Please restart the booking. (भुगतान समय समाप्त हो गया है। कृपया बुकिंग फिर से शुरू करें।)");
+                }
+            }, 1000);
+        }
+        
+        // NEW FUNCTION: Handle transaction verification and show thank you screen
+        function verifyTransaction() {
+            const transactionInput = document.getElementById('transaction-number');
+            const transactionId = transactionInput.value.trim();
+
+            if (transactionId.length < 5) {
+                alert('Please enter a valid Demo Transaction ID (minimum 5 characters). (कृपया एक वैध डेमो ट्रांज़ैक्शन आईडी दर्ज करें।)');
+                return;
+            }
+            
+            // Simulating successful verification
+            showThankYouScreen();
+        }
+        
+        // NEW FUNCTION: Display the Thank You screen
+        function showThankYouScreen() {
+            // Clear any active timers
+            clearInterval(paymentTimerInterval);
+        
+            document.getElementById('payment-screen').classList.add('hidden');
+            document.getElementById('thank-you-screen').classList.remove('hidden');
+        }
 
 
-   <main>
-      
-       <!-- Home Section (Now 'page-home') -->
-       <section id="page-home" class="app-page py-12 hidden">
-           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-               <h1 class="text-4xl sm:text-5xl font-extrabold text-safety-primary mb-6 leading-tight">
-                   Why Road Safety Is Really About Human Behaviour (Not Just Signs and Rules)
-               </h1>
+        // Function to generate options for the state select
+        function generateStateOptions() {
+            let options = '<option value="">Select your State / UT (अपना राज्य/केंद्र शासित प्रदेश चुनें)</option>';
+            // Sort states alphabetically by name
+            const sortedStates = Object.entries(indianStates).sort(([, a], [, b]) => a.localeCompare(b));
+            
+            sortedStates.forEach(([code, name]) => {
+                options += `<option value="${code}">${name} (${code})</option>`;
+            });
+            return options;
+        }
 
+        // Initialize form fields with placeholder content (runs on load)
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inject Step 1 HTML content (Vehicle Details)
+            document.getElementById('step-1-vehicle').innerHTML = `
+                <!-- State -->
+                <label for="state-select" class="block text-sm font-medium text-gray-700">State / UT (राज्य/केंद्र शासित प्रदेश)</label>
+                <select id="state-select" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-primary-blue focus:border-primary-blue sm:text-sm rounded-md shadow-sm border">
+                    ${generateStateOptions()}
+                </select>
 
-               <div class="space-y-8 text-lg text-gray-700">
-                   <!-- Introduction -->
-                   <p>
-                       If you’ve ever driven late at night when the roads are quiet and the lights are green for miles, you’ve probably felt that little nudge: “Well, I can speed a bit… who’s around?”
-                   </p>
-                   <p class="p-4 bg-safety-secondary/10 border-l-4 border-safety-secondary rounded-lg italic">
-                       That subtle shift—when rules feel optional—is where road safety becomes more about psychology than regulations.
-                   </p>
+                <!-- Vehicle Registration Number -->
+                <div>
+                    <label for="reg-number" class="block text-sm font-medium text-gray-700">Vehicle Registration Number (वाहन पंजीकरण संख्या)</label>
+                    <input type="text" id="reg-number" placeholder="UK14AB1234" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue uppercase" maxlength="10">
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Chassis Number -->
+                    <div>
+                        <label for="chassis-number" class="block text-sm font-medium text-gray-700">Chassis Number (Last 6 digits) (चेसिस संख्या)</label>
+                        <input type="text" id="chassis-number" placeholder="12DEFC" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue uppercase" maxlength="6">
+                    </div>
+                    <!-- Engine Number -->
+                    <div>
+                        <label for="engine-number" class="block text-sm font-medium text-gray-700">Engine Number (Last 6 digits) (इंजन संख्या)</label>
+                        <input type="text" id="engine-number" placeholder="ABCDEF" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue uppercase" maxlength="6">
+                    </div>
+                </div>
 
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Vehicle Class -->
+                    <div>
+                        <label for="vehicle-class-select" class="block text-sm font-medium text-gray-700">Vehicle Class (वाहन वर्ग)</label>
+                        <select id="vehicle-class-select" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-primary-blue focus:border-primary-blue sm:text-sm rounded-md shadow-sm border">
+                            <option value="">Select Vehicle Class (वाहन वर्ग चुनें)</option>
+                            <option value="2W">Two Wheeler (2W) - दो पहिया</option>
+                            <option value="3W">Three Wheeler (3W) - तीन पहिया</option>
+                            <option value="4W">Four Wheeler (4W) - चार पहिया</option>
+                            <option value="Commercial">Commercial - वाणिज्यिक</option>
+                        </select>
+                    </div>
 
-                   <!-- We don’t drive with our brains alone -->
-                   <h2 class="text-3xl font-bold text-safety-primary pt-4">We don’t drive with our brains alone—we drive with our emotions</h2>
-                   <p>
-                       Most people think collisions happen due to bad driving ability. But more often, they happen because of human behaviour:
-                   </p>
-                   <ul class="list-disc ml-6 space-y-2">
-                       <li>We rush because we're late</li>
-                       <li>We glance at the phone because it buzzed</li>
-                       <li>We assume others will yield</li>
-                       <li>We think “it won’t happen to me”</li>
-                   </ul>
-                   <p>It’s rarely a technical error. It’s often a momentary human one.</p>
+                    <!-- Number of Plates -->
+                    <div>
+                        <label for="plate-count" class="block text-sm font-medium text-gray-700">Number of Plates (प्लेटों की संख्या)</label>
+                        <select id="plate-count" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-primary-blue focus:border-primary-blue sm:text-sm rounded-md shadow-sm border">
+                            <option value="2">2 (Front and Rear - सामने और पीछे)</option>
+                            <option value="1">1 (Only Rear - केवल पीछे)</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+            
+            // Inject Step 2 HTML content (Personal Details)
+            document.getElementById('step-2-personal').innerHTML = `
+                <!-- Full Name -->
+                <div>
+                    <label for="full-name" class="block text-sm font-medium text-gray-700">Full Name (पूरा नाम)</label>
+                    <input type="text" id="full-name" placeholder="E.g., Rajesh Kumar" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue uppercase">
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Email Address -->
+                    <div>
+                        <label for="email-address" class="block text-sm font-medium text-gray-700">Email Address (ईमेल)</label>
+                        <input type="email" id="email-address" placeholder="example@domain.com" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
+                    </div>
+                    <!-- Mobile Number -->
+                    <div>
+                        <label for="mobile-number" class="block text-sm font-medium text-gray-700">Mobile Number (मोबाइल नंबर)</label>
+                        <input type="tel" id="mobile-number" placeholder="9876543210" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue" maxlength="10">
+                    </div>
+                </div>
 
+                <!-- Address -->
+                <div>
+                    <label for="full-address" class="block text-sm font-medium text-gray-700">Full Address (पूरा पता)</label>
+                    <textarea id="full-address" rows="3" placeholder="House No, Street, Landmark" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue"></textarea>
+                </div>
 
-                   <!-- A real-life scenario -->
-                   <h2 class="text-3xl font-bold text-safety-primary pt-4">A real-life scenario: The “just this once” spiral</h2>
-                   <p>
-                       A friend of mine, David, used to commute 30 minutes through a semi-rural area with long stretches of road. One morning he woke up late and pushed his speed just a little — then a little more. It was foggy, visibility was low, and as he came over a slight hill, a truck pulled out of a side road. There was no time to brake fully.
-                   </p>
-                   <p>
-                       Thankfully, no one was seriously hurt—but David said the scariest part was realizing that he didn’t crash because he was a bad driver — but because he’d ignored a small voice in his head telling him to slow down.
-                   </p>
-                   <blockquote class="p-4 bg-gray-100 border-l-4 border-safety-accent rounded-lg text-xl italic font-semibold">
-                       “I wasn’t unlucky. I was impatient.”
-                   </blockquote>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- City -->
+                    <div>
+                        <label for="city" class="block text-sm font-medium text-gray-700">City (शहर)</label>
+                        <input type="text" id="city" placeholder="E.g., New Delhi" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
+                    </div>
+                    <!-- Pincode -->
+                    <div>
+                        <label for="pincode" class="block text-sm font-medium text-gray-700">Pincode (पिनकोड)</label>
+                        <input type="text" id="pincode" placeholder="110001" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue" maxlength="6">
+                    </div>
+                </div>
+            `;
+        });
 
-
-                   <!-- Our brains are wired to underestimate risk -->
-                   <h2 class="text-3xl font-bold text-safety-primary pt-4">Our brains are wired to underestimate risk</h2>
-                   <p>
-                       Humans are built to normalize routine. When we’ve done something safely 500 times, we start believing we’re safe doing it the 501st time—even if conditions have changed. That’s why:
-                   </p>
-                   <ul class="list-disc ml-6 space-y-2">
-                       <li>People check texts at traffic lights</li>
-                       <li>Pedestrians cross on red if nothing’s coming</li>
-                       <li>Cyclists skip hand signals if the road looks empty</li>
-                   </ul>
-                   <p>It’s not outright recklessness—it’s habit plus optimism.</p>
-
-
-                   <!-- The social chain reaction -->
-                   <h2 class="text-3xl font-bold text-safety-primary pt-4">The social chain reaction</h2>
-                   <p>
-                       Behaviour is contagious on the road.
-                   </p>
-                   <ul class="list-disc ml-6 space-y-2">
-                       <li>If one driver speeds, others match them.</li>
-                       <li>If one pedestrian crosses early, others follow.</li>
-                       <li>If one cyclist ignores a stop sign, drivers become more irritated and less patient.</li>
-                   </ul>
-                   <p class="font-semibold text-safety-secondary">
-                       Road safety is like public health—everyone shares responsibility. We protect not just ourselves but others.
-                   </p>
-
-
-                   <!-- The small choices are the big ones -->
-                   <h2 class="text-3xl font-bold text-safety-primary pt-4">The small choices are the big ones</h2>
-                   <p>
-                       Road safety often comes down to tiny micro-decisions:
-                   </p>
-                   <ul class="list-disc ml-6 space-y-2">
-                       <li>Do I check my mirrors again?</li>
-                       <li>Do I wait that extra second before pulling out?</li>
-                       <li>Do I look left one more time at the crosswalk?</li>
-                       <li>Do I ignore the phone until I’m parked?</li>
-                   </ul>
-                   <p>These aren’t dramatic heroic acts. They’re ordinary ones that prevent extraordinary consequences.</p>
-
-
-                   <!-- A gentle, friendly takeaway -->
-                   <h2 class="text-3xl font-bold text-safety-primary pt-4">A gentle, friendly takeaway</h2>
-                   <p>
-                       Next time you’re out on the road—driving, cycling, or walking—think of it less like following rules and more like looking out for friends on the same shared path. A little extra patience, a little more attention, and a touch of empathy go a surprisingly long way.
-                   </p>
-                   <p class="p-4 bg-safety-accent/20 border-l-4 border-safety-accent rounded-lg font-bold text-lg">
-                       And hey—getting somewhere two minutes later is almost always better than not getting there at all.
-                   </p>
-               </div>
-           </div>
-       </section>
-
-
-       <!-- About Us Section (Now 'page-about') -->
-       <section id="page-about" class="app-page hidden">
-           <div class="bg-safety-primary py-16">
-               <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-                   <h2 class="text-4xl font-extrabold mb-6 border-b-2 border-safety-accent pb-2">About Us: The Mindset Shift</h2>
-                   <p class="text-xl mb-4">
-                       Our mission is simple: to shift the conversation around road safety from rigid enforcement and abstract rules to the core of the issue—human psychology and ethical responsibility.
-                   </p>
-                   <p class="mb-4">
-                       We believe that nearly all road incidents are preventable through better awareness of our cognitive biases, emotional states, and tendency to normalize risk. We provide resources, workshops (mock), and insights aimed at cultivating patience, empathy, and situational awareness in every road user—drivers, cyclists, and pedestrians alike.
-                   </p>
-                   <p class="italic">
-                       Safety is not a guarantee provided by a traffic light; it is a choice made in every single moment.
-                   </p>
-                   <div class="mt-8 flex flex-wrap gap-4">
-                       <span class="bg-white text-safety-primary px-3 py-1 rounded-full text-sm font-semibold">#BehaviourOverRules</span>
-                       <span class="bg-white text-safety-primary px-3 py-1 rounded-full text-sm font-semibold">#EmpathyOnTheRoad</span>
-                       <span class="bg-white text-safety-primary px-3 py-1 rounded-full text-sm font-semibold">#MindfulMobility</span>
-                   </div>
-               </div>
-           </div>
-       </section>
-
-
-       <!-- FAQs Section (Now 'page-faqs') -->
-       <section id="page-faqs" class="app-page py-12 hidden">
-           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-               <h2 class="text-4xl font-extrabold text-safety-primary mb-8 text-center">Frequently Asked Questions</h2>
-
-
-               <div class="space-y-6">
-                   <!-- FAQ Item 1 -->
-                   <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-lg">
-                       <h3 class="text-xl font-bold text-safety-secondary mb-2">Q: Doesn't aggressive driving come down to law enforcement?</h3>
-                       <p class="text-gray-700">
-                           A: Law enforcement is critical, but it addresses the symptom, not the cause. Our focus is on the proactive—understanding the psychological triggers (stress, impatience, distraction) that lead people to break rules in the first place. By addressing the 'why', we aim for sustainable behavioral change, not just compliance driven by fear of penalty.
-                       </p>
-                   </div>
-
-
-                   <!-- FAQ Item 2 -->
-                   <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-lg">
-                       <h3 class="text-xl font-bold text-safety-secondary mb-2">Q: How can I be more patient when I'm running late?</h3>
-                       <p class="text-gray-700">
-                           A: This is tough, but try the "2-Minute Rule." Tell yourself that the rush will, at best, save you two minutes, but dramatically increase your risk. Frame the decision as trading two minutes of potential gain for a lifetime of regret. Pre-planning your trip time is the best long-term strategy.
-                       </p>
-                   </div>
-
-
-                   <!-- FAQ Item 3 -->
-                   <div class="p-6 bg-white border border-gray-200 rounded-xl shadow-lg">
-                       <h3 class="text-xl font-bold text-safety-secondary mb-2">Q: Is this philosophy only for drivers?</h3>
-                       <p class="text-gray-700">
-                           A: Absolutely not! Every road user—pedestrian, cyclist, or motorist—operates on the road with human biases and emotions. Road safety is a shared responsibility. A distracted pedestrian crossing against a light is a behavioral risk just as much as a speeding driver.
-                       </p>
-                   </div>
-               </div>
-           </div>
-       </section>
-
-
-       <!-- Contact Us Section (Now 'page-contact') -->
-       <section id="page-contact" class="app-page hidden">
-           <div class="bg-gray-100 py-16">
-               <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                   <h2 class="text-4xl font-extrabold text-safety-primary mb-8 text-center">Get in Touch</h2>
-
-
-                   <div class="bg-white p-8 md:p-10 rounded-2xl shadow-xl">
-                       <p class="mb-6 text-lg text-gray-600">
-                           We'd love to hear your road safety stories, partnership ideas, or any questions you have about our behavioral approach.
-                       </p>
-                       <form onsubmit="event.preventDefault(); showThankYou();" class="space-y-4">
-                           <div>
-                               <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                               <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-safety-accent focus:border-safety-accent">
-                           </div>
-                           <div>
-                               <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                               <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-safety-accent focus:border-safety-accent">
-                           </div>
-                           <div>
-                               <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                               <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-safety-accent focus:border-safety-accent"></textarea>
-                           </div>
-                           <div class="pt-2">
-                               <button type="submit" class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-lg text-white bg-safety-accent hover:bg-yellow-600 transition duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-safety-accent">
-                                   Send Message
-                               </button>
-                           </div>
-                           <!-- Thank You Message Box (Hidden by default) -->
-                           <div id="thankYouMessage" class="hidden p-4 mt-4 text-center text-sm font-medium text-green-800 bg-green-100 border border-green-300 rounded-lg" role="alert">
-                               Thank you for reaching out! We will be in touch shortly.
-                           </div>
-                       </form>
-                       <!-- Simple Contact Info -->
-                       <div class="mt-8 pt-6 border-t border-gray-200 text-center">
-                           <p class="font-semibold text-safety-primary">Quick Contact:</p>
-                           <p>Email: <a href="mailto:info@behaviourfirst.org" class="text-safety-secondary hover:underline">info@behaviourfirst.org</a></p>
-                           <p>Social: @BehaviorFirst</p>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section>
-   </main>
-
-
-   <!-- Footer -->
-   <footer class="bg-gray-800 text-white py-8">
-       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-           <p>&copy; 2025 Road Safety: Behaviour First. All rights reserved.</p>
-           <p class="mt-2">Promoting awareness of human behaviour in public mobility.</p>
-       </div>
-   </footer>
-
-
-   <script>
-       // JavaScript for Mobile Menu Toggle
-       const mobileMenuButton = document.getElementById('mobile-menu-button');
-       const mobileMenu = document.getElementById('mobile-menu');
-
-
-       mobileMenuButton.addEventListener('click', () => {
-           const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-           mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-           mobileMenu.classList.toggle('hidden');
-       });
-
-
-       // Simple function for Contact Form 'Thank You' message
-       function showThankYou() {
-           const thankYou = document.getElementById('thankYouMessage');
-           thankYou.classList.remove('hidden');
-           setTimeout(() => {
-               thankYou.classList.add('hidden');
-               // Optionally clear the form
-               document.getElementById('name').value = '';
-               document.getElementById('email').value = '';
-               document.getElementById('message').value = '';
-           }, 3000);
-       }
-   </script>
+    </script>
 </body>
 </html>
